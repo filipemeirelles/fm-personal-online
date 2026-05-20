@@ -50,3 +50,15 @@ O formato segue uma versão simplificada de changelog por etapas de desenvolvime
 - `docs/AUTH_SPEC.md` com escopo da autenticação para o MVP.
 - Definição da primeira etapa visual: páginas `/login` e `/cadastro` sem integração com Supabase.
 - Critérios de aceite para manter a Sprint 1 pequena e orientada por especificação.
+
+## 2026-05-20 — Sprint 1: páginas visuais de autenticação
+
+### Adicionado
+
+- Página `/login` com formulário visual de email e senha.
+- Página `/cadastro` com formulário visual de nome, email, senha e seleção de perfil.
+- Navegação visual entre login e cadastro.
+
+### Observação
+
+- As páginas ainda não conectam Supabase, não criam sessão e não validam credenciais reais.

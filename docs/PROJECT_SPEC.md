@@ -191,8 +191,8 @@ exercise_logs  → id, workout_log_id, exercise_id, actual_load, notes, created_
 
 ### Sprint 1 — Autenticação
 - [x] Detalhar escopo técnico e visual da autenticação
-- [ ] Página de login
-- [ ] Página de cadastro
+- [x] Página de login visual, sem integração com Supabase
+- [x] Página de cadastro visual, sem integração com Supabase
 - [ ] Middleware de proteção de rotas
 - [ ] Redirecionamento por perfil (trainer/student)
 
