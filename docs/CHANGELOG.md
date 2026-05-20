@@ -70,3 +70,15 @@ O formato segue uma versão simplificada de changelog por etapas de desenvolvime
 - Modelo inicial atualizado para usar `auth.users` do Supabase e tabela `profiles` para dados públicos e role.
 - Referências de `trainers` e `students` ajustadas para `profile_id`.
 - `docs/AUTH_SPEC.md` atualizado para refletir a decisão antes da implementação real do Supabase.
+
+## 2026-05-20 — Sprint 1: configuração inicial do Supabase client
+
+### Adicionado
+
+- Dependência `@supabase/supabase-js`.
+- Browser client inicial em `src/lib/supabase/client.ts`.
+- Tipagem inicial do banco em `src/types/database.ts`, começando por `profiles`.
+
+### Observação
+
+- Os formulários de login e cadastro ainda não executam autenticação real.
