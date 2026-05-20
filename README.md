@@ -8,7 +8,7 @@ Plataforma web para personal trainers que atuam com consultoria online. Centrali
 
 ## Stack
 
-- **Next.js 14+** — App Router
+- **Next.js 15+** — App Router
 - **TypeScript** — tipagem estrita
 - **Tailwind CSS** — estilização utilitária
 - **Supabase** — banco de dados, autenticação e RLS
@@ -43,6 +43,8 @@ Acesse `http://localhost:3000`.
 ## Status do projeto
 
 **Sprint 0 — Fundação** (em andamento)
+
+Base Next.js, documentação inicial e design system da marca já configurados. Supabase e deploy ainda não foram configurados.
 
 Veja o roadmap completo em [`docs/PROJECT_SPEC.md`](./docs/PROJECT_SPEC.md#9-roadmap-inicial).
 

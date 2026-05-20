@@ -127,7 +127,7 @@ O MVP deve validar o fluxo principal: **personal cria treino → aluno acessa e 
 ### Stack
 | Camada | Tecnologia |
 |---|---|
-| Frontend | Next.js 14+ (App Router) |
+| Frontend | Next.js 15+ (App Router) |
 | Linguagem | TypeScript |
 | Estilo | Tailwind CSS |
 | Backend / DB | Supabase (PostgreSQL + Auth + RLS) |
@@ -138,6 +138,7 @@ O MVP deve validar o fluxo principal: **personal cria treino → aluno acessa e 
 ```txt
 src/
 ├── app/                    # App Router (Next.js)
+│   ├── style-guide/         # Visualização temporária do design system
 │   ├── (auth)/             # Rotas públicas (login, cadastro)
 │   ├── (dashboard)/        # Rotas protegidas
 │   │   ├── trainer/        # Painel do personal
@@ -158,6 +159,7 @@ docs/
 ├── DATABASE_SCHEMA.md      # Modelo de dados e RLS
 ├── DEVELOPMENT_WORKFLOW.md # Fluxo de Git, commits e PRs
 ├── AI_CODING_GUIDE.md      # Guia para trabalhar com Claude/Codex
+├── DESIGN_SYSTEM.md        # Base visual da marca
 └── CHANGELOG.md            # Histórico de mudanças
 ```
 
@@ -181,10 +183,10 @@ exercise_logs  → id, workout_log_id, exercise_id, actual_load, notes, created_
 - [x] Criar `README.md`
 - [x] Criar `docs/PROJECT_SPEC.md`
 - [x] Criar documentação técnica complementar
-- [ ] Criar estrutura real do projeto Next.js + TypeScript + Tailwind
+- [x] Criar estrutura real do projeto Next.js + TypeScript + Tailwind
 - [ ] Configurar Supabase (projeto + schema inicial)
 - [ ] Configurar deploy na Vercel
-- [ ] Definir design system básico (cores, tipografia)
+- [x] Definir design system básico (cores, tipografia)
 
 ### Sprint 1 — Autenticação
 - [ ] Página de login

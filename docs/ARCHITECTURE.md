@@ -6,8 +6,8 @@ Documentar as principais decisões técnicas do projeto para manter consistênci
 
 ## Stack principal
 
-- Next.js 14+ com App Router
-- React
+- Next.js 15+ com App Router
+- React 19
 - TypeScript em modo estrito
 - Tailwind CSS
 - Supabase para autenticação, banco PostgreSQL e Row Level Security
@@ -32,6 +32,7 @@ src/
 │   ├── (dashboard)/
 │   │   ├── trainer/
 │   │   └── student/
+│   ├── style-guide/
 │   ├── layout.tsx
 │   └── page.tsx
 ├── components/
@@ -59,4 +60,3 @@ O student acessa apenas os próprios treinos, registra execuções e visualiza s
 - Definir se haverá cadastro público de alunos ou apenas convite criado pelo trainer.
 - Definir se cada treino terá vários dias estruturados (`workout_days`) ou se cada plano será um treino único.
 - Definir se vídeos/GIFs serão links externos ou arquivos armazenados.
-- Definir primeiro design system baseado na identidade visual FM.

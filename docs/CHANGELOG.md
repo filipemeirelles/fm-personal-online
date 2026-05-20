@@ -20,3 +20,25 @@ O formato segue uma versão simplificada de changelog por etapas de desenvolvime
 ### Próximo passo
 
 - Criar a estrutura real do projeto Next.js + TypeScript + Tailwind.
+
+## 2026-05-20 — Sprint 0: base visual e design system
+
+### Adicionado
+
+- Estrutura inicial do projeto com Next.js 15, App Router, React 19, TypeScript e Tailwind CSS.
+- Tokens de marca no Tailwind para charcoal, gray, rose, off-white e beige.
+- Fontes Playfair Display e Montserrat configuradas com `next/font/google`.
+- Componentes base de UI: `Button`, `Card`, `Input`, `Label`, `Badge` e `PageHeader`.
+- Página temporária `/style-guide` para visualizar paleta, tipografia e componentes.
+- `docs/DESIGN_SYSTEM.md` com regras visuais iniciais da marca.
+
+### Validado
+
+- `npm run lint`
+- `npm run type-check`
+- `npm run build`
+
+### Ainda pendente na Sprint 0
+
+- Configurar Supabase somente quando a etapa de autenticação/banco for iniciada.
+- Configurar deploy na Vercel em etapa própria.
