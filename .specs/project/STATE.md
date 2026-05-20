@@ -28,10 +28,9 @@
 
 ## Próximos Passos
 
-1. Conectar cadastro visual ao Supabase Auth em uma etapa pequena.
-2. Conectar login visual ao Supabase Auth em uma etapa separada.
-3. Criar placeholders mínimos de dashboards.
-4. Só depois criar proteção de rotas e redirecionamento por perfil.
+1. Conectar login visual ao Supabase Auth em uma etapa separada.
+2. Criar placeholders mínimos de dashboards.
+3. Só depois criar proteção de rotas e redirecionamento por perfil.
 
 ## Histórico Resumido
 
@@ -41,3 +40,4 @@
 - A Sprint de autenticação foi iniciada com páginas visuais de login/cadastro, Supabase client e migration inicial de `profiles`.
 - A documentação foi reorganizada para `.specs/`, incluindo specs de design system e autenticação.
 - O projeto Supabase remoto `emvisxoadtdeojddvumd` foi linkado e recebeu a migration `001_create_profiles.sql`.
+- O cadastro foi conectado ao Supabase Auth e a migration `002_create_profile_on_signup.sql` cria profiles automaticamente.

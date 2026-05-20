@@ -1,5 +1,3 @@
-import Link from "next/link";
-import { Button } from "@/components/ui/button";
 import {
   Card,
   CardContent,
@@ -7,8 +5,7 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
+import { CadastroForm } from "./cadastro-form";
 
 export default function CadastroPage() {
   return (
@@ -38,95 +35,7 @@ export default function CadastroPage() {
               </CardDescription>
             </CardHeader>
             <CardContent>
-              <form className="space-y-5">
-                <div className="space-y-2">
-                  <Label htmlFor="nome">Nome completo</Label>
-                  <Input
-                    id="nome"
-                    name="nome"
-                    type="text"
-                    autoComplete="name"
-                    placeholder="Seu nome completo"
-                  />
-                </div>
-
-                <div className="space-y-2">
-                  <Label htmlFor="email">Email</Label>
-                  <Input
-                    id="email"
-                    name="email"
-                    type="email"
-                    autoComplete="email"
-                    placeholder="seuemail@exemplo.com"
-                  />
-                </div>
-
-                <div className="space-y-2">
-                  <Label htmlFor="senha">Senha</Label>
-                  <Input
-                    id="senha"
-                    name="senha"
-                    type="password"
-                    autoComplete="new-password"
-                    placeholder="Crie uma senha"
-                  />
-                </div>
-
-                <fieldset className="space-y-3">
-                  <legend className="text-xs font-sans font-medium uppercase tracking-wide text-brand-charcoal">
-                    Perfil
-                  </legend>
-                  <div className="grid gap-3 sm:grid-cols-2">
-                    <label className="flex cursor-pointer items-start gap-3 rounded-lg border border-brand-beige bg-white p-4 transition-colors hover:border-brand-rose">
-                      <input
-                        type="radio"
-                        name="perfil"
-                        value="trainer"
-                        className="mt-1 accent-brand-charcoal"
-                      />
-                      <span>
-                        <span className="block text-sm font-medium text-brand-charcoal">
-                          Personal trainer
-                        </span>
-                        <span className="mt-1 block text-xs leading-5 text-brand-gray">
-                          Para administrar alunas e treinos.
-                        </span>
-                      </span>
-                    </label>
-
-                    <label className="flex cursor-pointer items-start gap-3 rounded-lg border border-brand-beige bg-white p-4 transition-colors hover:border-brand-rose">
-                      <input
-                        type="radio"
-                        name="perfil"
-                        value="student"
-                        className="mt-1 accent-brand-charcoal"
-                      />
-                      <span>
-                        <span className="block text-sm font-medium text-brand-charcoal">
-                          Aluna
-                        </span>
-                        <span className="mt-1 block text-xs leading-5 text-brand-gray">
-                          Para acessar treinos e registrar evolução.
-                        </span>
-                      </span>
-                    </label>
-                  </div>
-                </fieldset>
-
-                <Button className="w-full" size="lg">
-                  Criar conta
-                </Button>
-              </form>
-
-              <p className="mt-6 text-center text-sm text-brand-gray">
-                Já tem acesso?{" "}
-                <Link
-                  href="/login"
-                  className="font-medium text-brand-charcoal underline decoration-brand-rose underline-offset-4 transition-colors hover:text-brand-rose"
-                >
-                  Entrar
-                </Link>
-              </p>
+              <CadastroForm />
             </CardContent>
           </Card>
         </div>

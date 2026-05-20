@@ -32,7 +32,7 @@ Status: em andamento.
 - [x] Instalar e configurar client inicial do Supabase.
 - [x] Criar migration inicial de `profiles` com RLS.
 - [x] Aplicar migration em um projeto Supabase remoto.
-- [ ] Conectar cadastro ao Supabase Auth.
+- [x] Conectar cadastro ao Supabase Auth.
 - [ ] Conectar login ao Supabase Auth.
 - [ ] Criar logout.
 - [ ] Criar proteção de rotas.

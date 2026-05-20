@@ -68,7 +68,7 @@ npx supabase migration list
 
 ## 6. Conectar cadastro ao Supabase Auth
 
-Status: pendente.
+Status: concluído.
 
 Critérios de verificação:
 
@@ -76,6 +76,12 @@ Critérios de verificação:
 - `/cadastro` cria registro correspondente em `profiles`.
 - Erros são exibidos em português brasileiro.
 - Não há dashboard real nesta etapa.
+
+Implementação:
+
+- O formulário chama `supabase.auth.signUp`.
+- Nome e perfil são enviados em `options.data`.
+- A migration `002_create_profile_on_signup.sql` cria o profile automaticamente via trigger em `auth.users`.
 
 ## 7. Conectar login ao Supabase Auth
 

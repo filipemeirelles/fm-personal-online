@@ -60,7 +60,7 @@ Status: migration criada e aplicada no projeto Supabase remoto.
 
 O formulário `/cadastro` deve criar usuário no Supabase Auth e criar o respectivo profile.
 
-Status: pendente.
+Status: concluído.
 
 ### AUTH-006 - Login funcional
 

@@ -46,7 +46,16 @@ src/app/
 src/lib/supabase/client.ts
 src/types/database.ts
 supabase/migrations/001_create_profiles.sql
+supabase/migrations/002_create_profile_on_signup.sql
 ```
+
+## Criação de Profile no Cadastro
+
+O formulário de cadastro envia `name` e `role` nos metadados do Supabase Auth.
+
+A migration `002_create_profile_on_signup.sql` cria um trigger em `auth.users` para inserir automaticamente o registro em `public.profiles` depois do signup.
+
+Isso evita depender de uma inserção manual no frontend e mantém a criação do profile próxima do banco.
 
 ## Variáveis de Ambiente
 

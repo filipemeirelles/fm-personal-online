@@ -151,3 +151,19 @@ O formato segue uma versão simplificada de changelog por etapas de desenvolvime
 ### Validado
 
 - `npx supabase migration list` confirmou `Local 001 | Remote 001`.
+
+## 2026-05-20 — Cadastro conectado ao Supabase Auth
+
+### Adicionado
+
+- Formulário funcional de cadastro em `/cadastro`.
+- Migration `002_create_profile_on_signup.sql` para criar `profiles` automaticamente após signup.
+- Mensagens de sucesso e erro em português brasileiro.
+
+### Validado
+
+- `npx supabase migration list` confirmou `Local 001/002 | Remote 001/002`.
+
+### Observação
+
+- Login funcional, logout, dashboards e proteção de rotas permanecem fora desta etapa.

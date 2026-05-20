@@ -124,11 +124,12 @@ created_at timestamptz default now()
 
 ```txt
 supabase/migrations/001_create_profiles.sql
+supabase/migrations/002_create_profile_on_signup.sql
 ```
 
-Essa migration cria `profiles`, habilita RLS e adiciona policies mínimas para o próprio usuário autenticado.
+Essas migrations criam `profiles`, habilitam RLS, adicionam policies mínimas para o próprio usuário autenticado e criam um trigger para gerar profiles automaticamente após signup.
 
-Status: aplicada no projeto Supabase remoto `emvisxoadtdeojddvumd`.
+Status: aplicadas no projeto Supabase remoto `emvisxoadtdeojddvumd`.
 
 ## Decisões Pendentes
 
