@@ -1,5 +1,5 @@
 import { cn } from "@/lib/utils";
-import { ButtonHTMLAttributes } from "react";
+import type { ButtonHTMLAttributes } from "react";
 
 type ButtonVariant = "primary" | "secondary" | "outline" | "ghost";
 type ButtonSize = "sm" | "md" | "lg";
@@ -29,14 +29,16 @@ const sizeClasses: Record<ButtonSize, string> = {
 export function Button({
   variant = "primary",
   size = "md",
+  type = "button",
   className,
   children,
   ...props
 }: ButtonProps) {
   return (
     <button
+      type={type}
       className={cn(
-        "inline-flex items-center justify-center rounded-lg font-sans font-medium tracking-wide transition-colors duration-150 disabled:opacity-50 disabled:cursor-not-allowed",
+        "inline-flex items-center justify-center rounded-lg font-sans font-medium tracking-wide transition-colors duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-rose focus-visible:ring-offset-2 focus-visible:ring-offset-brand-offwhite disabled:cursor-not-allowed disabled:opacity-50",
         variantClasses[variant],
         sizeClasses[size],
         className

@@ -1,6 +1,6 @@
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-center bg-brand-off-white p-8">
+    <main className="flex min-h-screen flex-col items-center justify-center bg-brand-offwhite p-8">
       <div className="text-center">
         <h1 className="font-display text-4xl font-semibold text-brand-charcoal">
           FM Personal Online

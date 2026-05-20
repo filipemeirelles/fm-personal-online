@@ -1,4 +1,8 @@
-# Design System — FM Personal Online
+# Design System - FM Personal Online
+
+## Propósito
+
+Este documento define a base visual inicial do FM Personal Online. O objetivo é manter a interface consistente, simples e alinhada à identidade Filipe Meirelles Personal Trainer antes da criação de telas de produto, autenticação, dashboard ou integrações.
 
 ## Identidade Visual
 
@@ -14,12 +18,12 @@ Tom visual: limpo, sofisticado, com bastante espaçamento, bordas finas e detalh
 | `brand-charcoal`       | Charcoal    | `#222222` | Texto principal, botão primário           |
 | `brand-gray`           | Gray        | `#A6A6A6` | Textos secundários, ícones, placeholders  |
 | `brand-rose`           | Rose        | `#D8A6A6` | Detalhes, badges, hover accent, foco      |
-| `brand-off-white`      | Off-white   | `#F7F3F1` | Fundo de página                           |
+| `brand-offwhite`       | Off-white   | `#F7F3F1` | Fundo de página                           |
 | `brand-beige`          | Beige       | `#E6DED6` | Bordas, fundo de cards, separadores       |
 
 ### Uso por contexto
 
-- **Fundo de página:** `brand-off-white`
+- **Fundo de página:** `brand-offwhite`
 - **Cards e superfícies:** branco ou `brand-beige` claro
 - **Texto principal:** `brand-charcoal`
 - **Texto secundário / labels:** `brand-gray`
@@ -41,6 +45,7 @@ Tom visual: limpo, sofisticado, com bastante espaçamento, bordas finas e detalh
 
 - Títulos: `font-display`
 - Corpo: `font-sans` (remapeia para Montserrat)
+- Alternativas explícitas: `font-serifBrand` e `font-sansBrand`
 
 ### Escala tipográfica sugerida
 
@@ -68,6 +73,7 @@ Tamanhos: `sm`, `md` (padrão), `lg`
 
 ### Card
 
+- Partes: `Card`, `CardHeader`, `CardTitle`, `CardDescription`, `CardContent`, `CardFooter`
 - Fundo branco ou off-white
 - Borda `brand-beige`
 - `rounded-xl` com sombra leve
@@ -87,16 +93,41 @@ Tamanhos: `sm`, `md` (padrão), `lg`
 
 ### Badge
 
-Variantes: `default`, `rose`, `gray`, `beige`
+Variantes: `default`, `rose`, `neutral`, `outline`
 
 - Pill arredondado, texto pequeno
 - Sem visual de academia/alerta
 
 ### PageHeader
 
+- Aceita `eyebrow`, `title` e `description`
 - Título em Playfair Display
 - Subtítulo em Montserrat gray
 - Separador fino em `brand-beige`
+
+---
+
+## Exemplos de Uso
+
+```tsx
+<PageHeader
+  eyebrow="FM Personal Trainer"
+  title="Alunas"
+  description="Acompanhamento elegante e organizado da consultoria online."
+/>
+```
+
+```tsx
+<Card>
+  <CardHeader>
+    <CardTitle>Treino vigente</CardTitle>
+    <CardDescription>Resumo visual do plano atual.</CardDescription>
+  </CardHeader>
+  <CardContent>
+    <Button variant="primary">Ver treino</Button>
+  </CardContent>
+</Card>
+```
 
 ---
 
@@ -109,3 +140,11 @@ Variantes: `default`, `rose`, `gray`, `beige`
 5. Sem gradientes ou visuais agressivos
 6. Ícones discretos, se usados
 7. Sempre priorizar legibilidade e respiro visual
+
+## O Que Evitar
+
+- Estética agressiva de academia, com excesso de preto puro, vermelho ou neon
+- Sombras fortes, gradientes chamativos e cards muito carregados
+- Muitas fontes diferentes na mesma tela
+- Componentes densos demais, sem margem ou respiro
+- Criar telas finais de produto antes da especificação da etapa correspondente

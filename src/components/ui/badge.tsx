@@ -1,7 +1,7 @@
 import { cn } from "@/lib/utils";
-import { HTMLAttributes } from "react";
+import type { HTMLAttributes } from "react";
 
-type BadgeVariant = "default" | "rose" | "gray" | "beige";
+type BadgeVariant = "default" | "rose" | "neutral" | "outline";
 
 interface BadgeProps extends HTMLAttributes<HTMLSpanElement> {
   variant?: BadgeVariant;
@@ -10,8 +10,8 @@ interface BadgeProps extends HTMLAttributes<HTMLSpanElement> {
 const variantClasses: Record<BadgeVariant, string> = {
   default: "bg-brand-charcoal text-white",
   rose: "bg-brand-rose/30 text-brand-charcoal",
-  gray: "bg-brand-gray/15 text-brand-charcoal",
-  beige: "bg-brand-beige text-brand-charcoal",
+  neutral: "bg-brand-beige text-brand-charcoal",
+  outline: "border border-brand-beige bg-transparent text-brand-charcoal",
 };
 
 export function Badge({ variant = "default", className, children, ...props }: BadgeProps) {

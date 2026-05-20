@@ -1,10 +1,12 @@
 import { cn } from "@/lib/utils";
-import { HTMLAttributes } from "react";
+import type { HTMLAttributes } from "react";
 
 type CardProps = HTMLAttributes<HTMLDivElement>;
 type CardHeaderProps = HTMLAttributes<HTMLDivElement>;
-type CardBodyProps = HTMLAttributes<HTMLDivElement>;
+type CardContentProps = HTMLAttributes<HTMLDivElement>;
 type CardFooterProps = HTMLAttributes<HTMLDivElement>;
+type CardTitleProps = HTMLAttributes<HTMLHeadingElement>;
+type CardDescriptionProps = HTMLAttributes<HTMLParagraphElement>;
 
 export function Card({ className, children, ...props }: CardProps) {
   return (
@@ -31,7 +33,30 @@ export function CardHeader({ className, children, ...props }: CardHeaderProps) {
   );
 }
 
-export function CardBody({ className, children, ...props }: CardBodyProps) {
+export function CardTitle({ className, children, ...props }: CardTitleProps) {
+  return (
+    <h3
+      className={cn("font-display text-lg font-medium text-brand-charcoal", className)}
+      {...props}
+    >
+      {children}
+    </h3>
+  );
+}
+
+export function CardDescription({
+  className,
+  children,
+  ...props
+}: CardDescriptionProps) {
+  return (
+    <p className={cn("mt-1 text-sm text-brand-gray", className)} {...props}>
+      {children}
+    </p>
+  );
+}
+
+export function CardContent({ className, children, ...props }: CardContentProps) {
   return (
     <div className={cn("px-6 py-5", className)} {...props}>
       {children}

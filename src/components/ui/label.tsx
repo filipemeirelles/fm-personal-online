@@ -1,5 +1,5 @@
 import { cn } from "@/lib/utils";
-import { LabelHTMLAttributes } from "react";
+import type { LabelHTMLAttributes } from "react";
 
 type LabelProps = LabelHTMLAttributes<HTMLLabelElement>;
 
