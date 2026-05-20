@@ -123,3 +123,19 @@ O formato segue uma versão simplificada de changelog por etapas de desenvolvime
 ### Alterado
 
 - Roadmap e estado do projeto atualizados para refletir a spec de autenticação no novo fluxo.
+
+## 2026-05-20 — Configuração local do Supabase CLI
+
+### Adicionado
+
+- `supabase/config.toml` gerado pelo Supabase CLI.
+- `supabase/.gitignore` para ignorar arquivos temporários e ambientes locais do Supabase.
+
+### Alterado
+
+- Configuração local ajustada para `http://localhost:3000`.
+- Seed local desabilitado enquanto não houver arquivo de seed versionado.
+
+### Observação
+
+- A migration ainda não foi aplicada porque Docker não está disponível no terminal atual e nenhum projeto remoto foi linkado.

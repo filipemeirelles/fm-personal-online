@@ -42,7 +42,7 @@ Critérios de verificação:
 
 ## 5. Aplicar migration no Supabase
 
-Status: pendente.
+Status: pendente. O Supabase CLI foi inicializado no projeto, mas a aplicação local depende de Docker ou de um projeto Supabase remoto linkado.
 
 Critérios de verificação:
 
@@ -51,6 +51,20 @@ Critérios de verificação:
 - Tabela `profiles` aparece no Supabase Studio.
 - RLS está habilitada.
 - Policies aparecem na tabela.
+
+Comandos planejados:
+
+```bash
+npx supabase start
+npx supabase db reset
+```
+
+Alternativa para projeto remoto:
+
+```bash
+npx supabase link --project-ref <project-ref>
+npx supabase db push
+```
 
 ## 6. Conectar cadastro ao Supabase Auth
 

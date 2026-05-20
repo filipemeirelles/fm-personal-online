@@ -24,6 +24,7 @@
 ## Blockers
 
 - Supabase ainda não foi conectado a um projeto real nesta documentação.
+- Docker não está disponível no terminal atual, então a aplicação local da migration ainda não foi executada.
 - As chaves reais devem ficar apenas em `.env.local` e nunca serem commitadas.
 - O fluxo de autenticação real depende da aplicação da migration `profiles`.
 
