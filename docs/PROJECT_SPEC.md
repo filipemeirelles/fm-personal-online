@@ -157,6 +157,7 @@ docs/
 ├── PROJECT_SPEC.md         # Este arquivo
 ├── ARCHITECTURE.md         # Decisões técnicas e arquitetura
 ├── DATABASE_SCHEMA.md      # Modelo de dados e RLS
+├── AUTH_SPEC.md            # Escopo da autenticação
 ├── DEVELOPMENT_WORKFLOW.md # Fluxo de Git, commits e PRs
 ├── AI_CODING_GUIDE.md      # Guia para trabalhar com Claude/Codex
 ├── DESIGN_SYSTEM.md        # Base visual da marca
@@ -189,6 +190,7 @@ exercise_logs  → id, workout_log_id, exercise_id, actual_load, notes, created_
 - [x] Definir design system básico (cores, tipografia)
 
 ### Sprint 1 — Autenticação
+- [x] Detalhar escopo técnico e visual da autenticação
 - [ ] Página de login
 - [ ] Página de cadastro
 - [ ] Middleware de proteção de rotas
