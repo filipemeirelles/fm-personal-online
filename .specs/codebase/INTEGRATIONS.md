@@ -13,6 +13,7 @@ Uso previsto:
 Estado atual:
 
 - `@supabase/supabase-js` instalado.
+- `@supabase/ssr` instalado para sessão em cookies e middleware.
 - Client inicial em `src/lib/supabase/client.ts`.
 - `.env.example` contém `NEXT_PUBLIC_SUPABASE_URL` e `NEXT_PUBLIC_SUPABASE_ANON_KEY`.
 - Migration inicial de `profiles` criada em `supabase/migrations/001_create_profiles.sql` e aplicada no projeto remoto `emvisxoadtdeojddvumd`.

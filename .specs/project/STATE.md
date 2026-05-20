@@ -28,9 +28,9 @@
 
 ## Próximos Passos
 
-1. Conectar login visual ao Supabase Auth em uma etapa separada.
-2. Criar placeholders mínimos de dashboards.
-3. Só depois criar proteção de rotas e redirecionamento por perfil.
+1. Testar manualmente o fluxo completo de cadastro, login, redirecionamento e logout.
+2. Revisar se a proteção por role está suficiente antes de iniciar gestão de alunas.
+3. Planejar a próxima feature em `.specs/features/student-management/` antes de implementar CRUD.
 
 ## Histórico Resumido
 
@@ -41,3 +41,4 @@
 - A documentação foi reorganizada para `.specs/`, incluindo specs de design system e autenticação.
 - O projeto Supabase remoto `emvisxoadtdeojddvumd` foi linkado e recebeu a migration `001_create_profiles.sql`.
 - O cadastro foi conectado ao Supabase Auth e a migration `002_create_profile_on_signup.sql` cria profiles automaticamente.
+- Login, logout, placeholders `/trainer` e `/student`, middleware e redirecionamento por perfil foram implementados.

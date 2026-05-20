@@ -33,10 +33,11 @@ Status: em andamento.
 - [x] Criar migration inicial de `profiles` com RLS.
 - [x] Aplicar migration em um projeto Supabase remoto.
 - [x] Conectar cadastro ao Supabase Auth.
-- [ ] Conectar login ao Supabase Auth.
-- [ ] Criar logout.
-- [ ] Criar proteção de rotas.
-- [ ] Redirecionar por perfil `trainer` ou `student`.
+- [x] Conectar login ao Supabase Auth.
+- [x] Criar logout.
+- [x] Criar placeholders mínimos de trainer/student.
+- [x] Criar proteção de rotas.
+- [x] Redirecionar por perfil `trainer` ou `student`.
 
 ## Sprint 3 - Gestão de Alunas
 

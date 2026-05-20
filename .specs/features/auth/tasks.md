@@ -85,7 +85,7 @@ Implementação:
 
 ## 7. Conectar login ao Supabase Auth
 
-Status: pendente.
+Status: concluído.
 
 Critérios de verificação:
 
@@ -93,9 +93,15 @@ Critérios de verificação:
 - Erros são exibidos em português brasileiro.
 - Usuário autenticado pode ser identificado pela sessão.
 
+Implementação:
+
+- O formulário chama `supabase.auth.signInWithPassword`.
+- Após login, o app consulta `profiles.role`.
+- O usuário é enviado para `/trainer` ou `/student`.
+
 ## 8. Criar placeholders de dashboard
 
-Status: pendente.
+Status: concluído.
 
 Critérios de verificação:
 
@@ -103,9 +109,15 @@ Critérios de verificação:
 - Não há funcionalidade real de dashboard.
 - Conteúdo visível está em português brasileiro.
 
+Implementação:
+
+- `/trainer` exibe placeholder da área do personal.
+- `/student` exibe placeholder da área da aluna.
+- Ambos possuem botão `Sair`.
+
 ## 9. Criar proteção de rotas e redirecionamento
 
-Status: pendente.
+Status: concluído para `/trainer` e `/student`.
 
 Critérios de verificação:
 
@@ -113,6 +125,12 @@ Critérios de verificação:
 - Trainer vai para área trainer.
 - Student vai para área student.
 - Acesso por role incompatível é bloqueado.
+
+Implementação:
+
+- `middleware.ts` protege `/trainer` e `/student`.
+- Sessões são lidas via cookies usando `@supabase/ssr`.
+- Usuário autenticado que acessa `/login` ou `/cadastro` é redirecionado para a própria área.
 
 ## 10. Rodar validações
 

@@ -69,6 +69,8 @@ export function CadastroForm() {
         return;
       }
 
+      await supabase.auth.signOut();
+
       form.reset();
       setRole("student");
       setSuccessMessage(

@@ -4,6 +4,8 @@
 
 A autenticação usará Supabase Auth.
 
+Sessões são persistidas em cookies com `@supabase/ssr`, permitindo que o middleware do Next.js valide sessão e role antes de renderizar rotas protegidas.
+
 Modelo definido:
 
 - `auth.users`: identidade nativa do Supabase.
@@ -44,7 +46,9 @@ src/app/
 
 ```txt
 src/lib/supabase/client.ts
+src/lib/supabase/middleware.ts
 src/types/database.ts
+middleware.ts
 supabase/migrations/001_create_profiles.sql
 supabase/migrations/002_create_profile_on_signup.sql
 ```

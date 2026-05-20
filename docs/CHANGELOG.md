@@ -167,3 +167,18 @@ O formato segue uma versão simplificada de changelog por etapas de desenvolvime
 ### Observação
 
 - Login funcional, logout, dashboards e proteção de rotas permanecem fora desta etapa.
+
+## 2026-05-20 — Login e proteção inicial de rotas
+
+### Adicionado
+
+- Login funcional em `/login` usando Supabase Auth.
+- Redirecionamento por perfil para `/trainer` ou `/student`.
+- Placeholders mínimos para área do personal e área da aluna.
+- Logout funcional.
+- Middleware para proteger `/trainer` e `/student` por sessão e role.
+- `@supabase/ssr` para persistência de sessão em cookies.
+
+### Observação
+
+- Os painéis são placeholders; gestão de alunas, treinos e dashboards reais continuam fora desta etapa.

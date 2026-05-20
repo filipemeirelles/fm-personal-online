@@ -66,25 +66,25 @@ Status: concluído.
 
 O formulário `/login` deve autenticar o usuário com Supabase Auth.
 
-Status: pendente.
+Status: concluído.
 
 ### AUTH-007 - Logout
 
 Usuário autenticado deve conseguir encerrar sessão.
 
-Status: pendente.
+Status: concluído.
 
 ### AUTH-008 - Redirecionamento por perfil
 
 Após login, trainer e student devem ser direcionados para suas áreas correspondentes.
 
-Status: pendente.
+Status: concluído.
 
 ### AUTH-009 - Proteção de rotas
 
 Rotas privadas devem exigir sessão válida e role compatível.
 
-Status: pendente.
+Status: concluído para os placeholders `/trainer` e `/student`.
 
 ## Critérios de Aceite da Feature
 

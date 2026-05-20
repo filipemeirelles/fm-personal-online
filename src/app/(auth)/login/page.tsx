@@ -1,5 +1,3 @@
-import Link from "next/link";
-import { Button } from "@/components/ui/button";
 import {
   Card,
   CardContent,
@@ -7,8 +5,7 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
+import { LoginForm } from "./login-form";
 
 export default function LoginPage() {
   return (
@@ -38,43 +35,7 @@ export default function LoginPage() {
               </CardDescription>
             </CardHeader>
             <CardContent>
-              <form className="space-y-5">
-                <div className="space-y-2">
-                  <Label htmlFor="email">Email</Label>
-                  <Input
-                    id="email"
-                    name="email"
-                    type="email"
-                    autoComplete="email"
-                    placeholder="seuemail@exemplo.com"
-                  />
-                </div>
-
-                <div className="space-y-2">
-                  <Label htmlFor="senha">Senha</Label>
-                  <Input
-                    id="senha"
-                    name="senha"
-                    type="password"
-                    autoComplete="current-password"
-                    placeholder="Digite sua senha"
-                  />
-                </div>
-
-                <Button className="w-full" size="lg">
-                  Entrar
-                </Button>
-              </form>
-
-              <p className="mt-6 text-center text-sm text-brand-gray">
-                Ainda não tem acesso?{" "}
-                <Link
-                  href="/cadastro"
-                  className="font-medium text-brand-charcoal underline decoration-brand-rose underline-offset-4 transition-colors hover:text-brand-rose"
-                >
-                  Criar conta
-                </Link>
-              </p>
+              <LoginForm />
             </CardContent>
           </Card>
         </div>
