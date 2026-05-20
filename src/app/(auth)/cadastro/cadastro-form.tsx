@@ -35,11 +35,12 @@ export function CadastroForm() {
 
   async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
+    const form = event.currentTarget;
     setErrorMessage(null);
     setSuccessMessage(null);
     setIsSubmitting(true);
 
-    const formData = new FormData(event.currentTarget);
+    const formData = new FormData(form);
     const name = String(formData.get("nome") ?? "").trim();
     const email = String(formData.get("email") ?? "").trim();
     const password = String(formData.get("senha") ?? "");
@@ -68,7 +69,7 @@ export function CadastroForm() {
         return;
       }
 
-      event.currentTarget.reset();
+      form.reset();
       setRole("student");
       setSuccessMessage(
         "Conta criada com sucesso. Agora você já pode entrar com seu email e senha."
