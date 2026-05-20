@@ -42,3 +42,11 @@ O formato segue uma versão simplificada de changelog por etapas de desenvolvime
 
 - Configurar Supabase somente quando a etapa de autenticação/banco for iniciada.
 - Configurar deploy na Vercel em etapa própria.
+
+## 2026-05-20 — Sprint 1: planejamento da autenticação
+
+### Adicionado
+
+- `docs/AUTH_SPEC.md` com escopo da autenticação para o MVP.
+- Definição da primeira etapa visual: páginas `/login` e `/cadastro` sem integração com Supabase.
+- Critérios de aceite para manter a Sprint 1 pequena e orientada por especificação.
