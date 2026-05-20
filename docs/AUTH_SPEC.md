@@ -106,13 +106,13 @@ Textos sugeridos:
 
 ## Decisão Técnica Inicial
 
-Quando Supabase for configurado, a decisão recomendada é usar:
+Quando Supabase for configurado, a decisão definida é usar:
 
 - `auth.users` para autenticação nativa do Supabase;
 - tabela `profiles` para dados públicos do usuário e role (`trainer` ou `student`);
 - RLS baseada em `auth.uid()` e relacionamento entre trainer e student.
 
-Essa decisão ainda deve ser refletida em `docs/DATABASE_SCHEMA.md` antes da implementação real do banco.
+Essa decisão já está refletida em `docs/DATABASE_SCHEMA.md` e deve orientar a implementação real do banco.
 
 ## Critérios de Aceite da Primeira Etapa Visual
 

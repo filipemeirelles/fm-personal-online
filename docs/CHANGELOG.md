@@ -62,3 +62,11 @@ O formato segue uma versão simplificada de changelog por etapas de desenvolvime
 ### Observação
 
 - As páginas ainda não conectam Supabase, não criam sessão e não validam credenciais reais.
+
+## 2026-05-20 — Sprint 1: decisão de modelo de autenticação
+
+### Alterado
+
+- Modelo inicial atualizado para usar `auth.users` do Supabase e tabela `profiles` para dados públicos e role.
+- Referências de `trainers` e `students` ajustadas para `profile_id`.
+- `docs/AUTH_SPEC.md` atualizado para refletir a decisão antes da implementação real do Supabase.
