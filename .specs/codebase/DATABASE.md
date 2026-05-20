@@ -128,6 +128,8 @@ supabase/migrations/001_create_profiles.sql
 
 Essa migration cria `profiles`, habilita RLS e adiciona policies mínimas para o próprio usuário autenticado.
 
+Status: aplicada no projeto Supabase remoto `emvisxoadtdeojddvumd`.
+
 ## Decisões Pendentes
 
 - Confirmar fluxo final de criação de `profiles` após signup.

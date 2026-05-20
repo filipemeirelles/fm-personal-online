@@ -15,12 +15,13 @@ Estado atual:
 - `@supabase/supabase-js` instalado.
 - Client inicial em `src/lib/supabase/client.ts`.
 - `.env.example` contém `NEXT_PUBLIC_SUPABASE_URL` e `NEXT_PUBLIC_SUPABASE_ANON_KEY`.
-- Migration inicial de `profiles` criada em `supabase/migrations/001_create_profiles.sql`.
+- Migration inicial de `profiles` criada em `supabase/migrations/001_create_profiles.sql` e aplicada no projeto remoto `emvisxoadtdeojddvumd`.
 - Supabase CLI inicializado com `supabase/config.toml`.
 
-Próximo teste necessário:
+Teste realizado:
 
-- Aplicar a migration localmente com Docker e `npx supabase db reset`, ou aplicar em um projeto remoto com `npx supabase link` e `npx supabase db push`.
+- `npx supabase db push` aplicou a migration remota.
+- `npx supabase migration list` confirmou `Local 001 | Remote 001`.
 
 ## Vercel
 

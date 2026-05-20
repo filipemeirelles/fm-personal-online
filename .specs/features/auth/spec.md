@@ -54,7 +54,7 @@ Status: concluído.
 
 Deve existir uma migration para criar `profiles` com RLS mínima para o próprio usuário.
 
-Status: migration criada, ainda não aplicada em ambiente Supabase.
+Status: migration criada e aplicada no projeto Supabase remoto.
 
 ### AUTH-005 - Cadastro funcional
 

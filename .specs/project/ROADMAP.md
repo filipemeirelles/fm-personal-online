@@ -31,7 +31,7 @@ Status: em andamento.
 - [x] Criar páginas visuais `/login` e `/cadastro`.
 - [x] Instalar e configurar client inicial do Supabase.
 - [x] Criar migration inicial de `profiles` com RLS.
-- [ ] Aplicar migration em um projeto Supabase local ou remoto.
+- [x] Aplicar migration em um projeto Supabase remoto.
 - [ ] Conectar cadastro ao Supabase Auth.
 - [ ] Conectar login ao Supabase Auth.
 - [ ] Criar logout.

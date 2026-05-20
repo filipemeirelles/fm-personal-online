@@ -42,7 +42,7 @@ Critérios de verificação:
 
 ## 5. Aplicar migration no Supabase
 
-Status: pendente. O Supabase CLI foi inicializado no projeto, mas a aplicação local depende de Docker ou de um projeto Supabase remoto linkado.
+Status: concluído no projeto Supabase remoto `emvisxoadtdeojddvumd`.
 
 Critérios de verificação:
 
@@ -52,18 +52,18 @@ Critérios de verificação:
 - RLS está habilitada.
 - Policies aparecem na tabela.
 
-Comandos planejados:
+Resultado validado pelo CLI:
 
-```bash
-npx supabase start
-npx supabase db reset
+```txt
+Local 001 | Remote 001
 ```
 
-Alternativa para projeto remoto:
+Comandos usados:
 
 ```bash
-npx supabase link --project-ref <project-ref>
+npx supabase link --project-ref emvisxoadtdeojddvumd
 npx supabase db push
+npx supabase migration list
 ```
 
 ## 6. Conectar cadastro ao Supabase Auth

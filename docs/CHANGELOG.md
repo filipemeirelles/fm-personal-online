@@ -139,3 +139,15 @@ O formato segue uma versão simplificada de changelog por etapas de desenvolvime
 ### Observação
 
 - A migration ainda não foi aplicada porque Docker não está disponível no terminal atual e nenhum projeto remoto foi linkado.
+
+## 2026-05-20 — Migration aplicada no Supabase remoto
+
+### Alterado
+
+- Projeto Supabase remoto `emvisxoadtdeojddvumd` linkado via CLI.
+- Migration `001_create_profiles.sql` aplicada com `npx supabase db push`.
+- Specs atualizadas para marcar a aplicação da migration como concluída.
+
+### Validado
+
+- `npx supabase migration list` confirmou `Local 001 | Remote 001`.
