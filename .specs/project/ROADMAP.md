@@ -27,6 +27,7 @@ Status: implementada inicialmente.
 Status: em andamento.
 
 - [x] Criar spec de autenticação.
+- [x] Migrar spec de autenticação para `.specs/features/auth/`.
 - [x] Criar páginas visuais `/login` e `/cadastro`.
 - [x] Instalar e configurar client inicial do Supabase.
 - [x] Criar migration inicial de `profiles` com RLS.

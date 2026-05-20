@@ -112,3 +112,14 @@ O formato segue uma versão simplificada de changelog por etapas de desenvolvime
 ### Observação
 
 - Nenhum código funcional do app foi alterado nesta reorganização.
+
+## 2026-05-20 — Spec de autenticação em `.specs/`
+
+### Adicionado
+
+- Feature spec de autenticação em `.specs/features/auth/`.
+- `spec.md`, `design.md` e `tasks.md` para guiar as próximas etapas de autenticação.
+
+### Alterado
+
+- Roadmap e estado do projeto atualizados para refletir a spec de autenticação no novo fluxo.

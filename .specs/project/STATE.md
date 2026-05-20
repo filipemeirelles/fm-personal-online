@@ -29,11 +29,11 @@
 
 ## Próximos Passos
 
-1. Consolidar a documentação na estrutura `.specs/`.
-2. Aplicar a migration de `profiles` no Supabase quando o projeto estiver criado.
-3. Conectar cadastro visual ao Supabase Auth em uma etapa pequena.
-4. Conectar login visual ao Supabase Auth em uma etapa separada.
-5. Só depois criar proteção de rotas e dashboards placeholder.
+1. Aplicar a migration de `profiles` no Supabase quando o projeto estiver criado.
+2. Conectar cadastro visual ao Supabase Auth em uma etapa pequena.
+3. Conectar login visual ao Supabase Auth em uma etapa separada.
+4. Criar placeholders mínimos de dashboards.
+5. Só depois criar proteção de rotas e redirecionamento por perfil.
 
 ## Histórico Resumido
 
@@ -41,3 +41,4 @@
 - A fundação técnica com Next.js, TypeScript, Tailwind, ESLint e documentação foi criada.
 - O design system inicial da marca foi implementado com tokens, fontes, componentes base e `/style-guide`.
 - A Sprint de autenticação foi iniciada com páginas visuais de login/cadastro, Supabase client e migration inicial de `profiles`.
+- A documentação foi reorganizada para `.specs/`, incluindo specs de design system e autenticação.
