@@ -120,6 +120,18 @@ created_at timestamptz default now()
 
 As políticas devem usar `auth.uid()` como base de identidade e comparar esse valor com `profiles.id`.
 
+### Migration inicial
+
+O primeiro arquivo SQL versionado está em:
+
+```txt
+supabase/migrations/001_create_profiles.sql
+```
+
+Ele cria a tabela `profiles`, ativa RLS e adiciona políticas para o usuário autenticado visualizar, inserir e atualizar o próprio perfil.
+
+Essa migration ainda precisa ser aplicada em um projeto Supabase local ou remoto em etapa própria.
+
 ### Trainer
 
 - Pode visualizar apenas alunos vinculados a ele.

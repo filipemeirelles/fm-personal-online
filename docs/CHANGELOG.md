@@ -82,3 +82,16 @@ O formato segue uma versão simplificada de changelog por etapas de desenvolvime
 ### Observação
 
 - Os formulários de login e cadastro ainda não executam autenticação real.
+
+## 2026-05-20 — Sprint 1: migration inicial de profiles
+
+### Adicionado
+
+- `supabase/migrations/001_create_profiles.sql` com tabela `profiles`.
+- RLS habilitada para `profiles`.
+- Políticas para usuário autenticado visualizar, inserir e atualizar o próprio perfil.
+- Trigger para atualizar `updated_at` automaticamente.
+
+### Observação
+
+- A migration ainda precisa ser aplicada em um projeto Supabase local ou remoto.

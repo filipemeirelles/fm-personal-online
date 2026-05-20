@@ -129,6 +129,16 @@ Esse client usa as variáveis públicas:
 
 Nesta etapa, o client ainda não é usado pelos formulários de login e cadastro. A integração real de autenticação deve ser feita em uma etapa separada.
 
+## Migration Inicial
+
+A primeira migration versionada está em:
+
+```txt
+supabase/migrations/001_create_profiles.sql
+```
+
+Ela cria a tabela `profiles` com RLS mínima para o próprio usuário autenticado. A migration ainda não conecta os formulários de login/cadastro ao Supabase.
+
 ## Critérios de Aceite da Primeira Etapa Visual
 
 - As páginas `/login` e `/cadastro` existem.

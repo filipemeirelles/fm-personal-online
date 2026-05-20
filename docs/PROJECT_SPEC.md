@@ -195,6 +195,7 @@ exercise_logs  → id, workout_log_id, exercise_id, actual_load, notes, created_
 - [x] Página de login visual, sem integração com Supabase
 - [x] Página de cadastro visual, sem integração com Supabase
 - [x] Instalar e configurar client inicial do Supabase
+- [x] Criar migration inicial de `profiles` com RLS
 - [ ] Middleware de proteção de rotas
 - [ ] Redirecionamento por perfil (trainer/student)
 
