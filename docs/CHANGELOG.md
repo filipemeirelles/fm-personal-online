@@ -95,3 +95,20 @@ O formato segue uma versão simplificada de changelog por etapas de desenvolvime
 ### Observação
 
 - A migration ainda precisa ser aplicada em um projeto Supabase local ou remoto.
+
+## 2026-05-20 — Reorganização spec-driven
+
+### Adicionado
+
+- Estrutura `.specs/` para documentação orientada por Specify, Design, Tasks e Execute.
+- Documentos de projeto em `.specs/project/`.
+- Documentos técnicos de codebase em `.specs/codebase/`.
+- Feature spec do design system em `.specs/features/design-system/`.
+
+### Alterado
+
+- `README.md` atualizado para apontar para a nova estrutura `.specs/`.
+
+### Observação
+
+- Nenhum código funcional do app foi alterado nesta reorganização.
