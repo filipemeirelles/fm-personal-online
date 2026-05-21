@@ -11,6 +11,8 @@
 - A autenticação usará `auth.users` do Supabase e uma tabela pública `profiles` para nome e perfil de acesso.
 - Os perfis principais são `trainer` e `student`.
 - Todo conteúdo visível no webapp deve estar em português brasileiro.
+- A confirmação de email no Supabase está desligada para o MVP. Cadastro entra direto sem verificação de inbox. Reavaliar antes do go-live.
+- O middleware do Next vive em `src/middleware.ts` (não na raiz), porque o projeto usa estrutura `src/`.
 
 ## Decisões Pendentes
 
@@ -22,15 +24,14 @@
 
 ## Blockers
 
-- Docker não está disponível no terminal atual, então o ambiente Supabase local ainda não foi executado.
+- Docker não está disponível no terminal atual, então o ambiente Supabase local ainda não foi executado. Todo trabalho está apontando para o projeto remoto.
 - As chaves reais devem ficar apenas em `.env.local` e nunca serem commitadas.
-- O fluxo de autenticação real depende da aplicação da migration `profiles`.
 
 ## Próximos Passos
 
-1. Testar manualmente o fluxo completo de cadastro, login, redirecionamento e logout.
-2. Revisar se a proteção por role está suficiente antes de iniciar gestão de alunas.
-3. Planejar a próxima feature em `.specs/features/student-management/` antes de implementar CRUD.
+1. Planejar a próxima feature em `.specs/features/student-management/` (spec, design, tasks) antes de implementar CRUD.
+2. Reavaliar a confirmação de email do Supabase antes do deploy em produção.
+3. Definir o modelo de cadastro de alunas (público vs. convite/manual pelo trainer) — bloqueia a Sprint 3.
 
 ## Histórico Resumido
 
@@ -42,3 +43,6 @@
 - O projeto Supabase remoto `emvisxoadtdeojddvumd` foi linkado e recebeu a migration `001_create_profiles.sql`.
 - O cadastro foi conectado ao Supabase Auth e a migration `002_create_profile_on_signup.sql` cria profiles automaticamente.
 - Login, logout, placeholders `/trainer` e `/student`, middleware e redirecionamento por perfil foram implementados.
+- Bug do middleware sendo ignorado (estava na raiz com projeto em `src/`) foi corrigido movendo para `src/middleware.ts`. Matcher passou a cobrir explicitamente as rotas-raiz `/trainer` e `/student`.
+- Mapeamento de mensagens de erro do login foi melhorado para diferenciar credenciais inválidas, email não confirmado e expor a mensagem bruta do Supabase em casos não previstos.
+- Sprint 2 fechada após smoke test manual end-to-end: cadastro, login, redirect por role, logout, proteção de rotas e cross-protection trainer↔student.
