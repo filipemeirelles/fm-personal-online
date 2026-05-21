@@ -1,5 +1,7 @@
 # Tasks - Gestão de Alunas
 
+> **PONTO DE RETOMADA (sessão 2026-05-21):** Tasks 1 a 9 concluídas e testadas manualmente end-to-end (trainer cria convite, aluna aceita, vai para `/student`). Próximo trabalho é a Task 10 (perfil individual da aluna em `/trainer/alunas/[id]`). Branch ativa: `feat/sprint-3-student-management`. Dev server: `npm run dev` em `http://localhost:3000`. Para detalhes de contexto, ver `.specs/project/STATE.md` seção "Próximos Passos".
+
 ## 1. Criar spec, design e tasks da feature
 
 Status: concluído ao mergear este documento.
@@ -12,7 +14,7 @@ Critérios de verificação:
 
 ## 2. Migration de profiles e student_invites
 
-Status: pendente.
+Status: concluído.
 
 Critérios de verificação:
 
@@ -26,7 +28,7 @@ Critérios de verificação:
 
 ## 3. Aplicar migration no Supabase remoto
 
-Status: pendente.
+Status: concluído.
 
 Critérios de verificação:
 
@@ -36,7 +38,7 @@ Critérios de verificação:
 
 ## 4. Adicionar Supabase Admin client
 
-Status: pendente.
+Status: concluído.
 
 Critérios de verificação:
 
@@ -48,7 +50,7 @@ Critérios de verificação:
 
 ## 5. Atualizar tipos de banco
 
-Status: pendente.
+Status: concluído.
 
 Critérios de verificação:
 
@@ -57,7 +59,7 @@ Critérios de verificação:
 
 ## 6. Server Actions de convite (criar, listar, reenviar, cancelar)
 
-Status: pendente.
+Status: concluído.
 
 Critérios de verificação:
 
@@ -68,7 +70,7 @@ Critérios de verificação:
 
 ## 7. Página de listagem `/trainer/alunas`
 
-Status: pendente.
+Status: concluído.
 
 Critérios de verificação:
 
@@ -80,7 +82,7 @@ Critérios de verificação:
 
 ## 8. Página pública `/convite/[token]`
 
-Status: pendente.
+Status: concluído.
 
 Critérios de verificação:
 
@@ -91,7 +93,7 @@ Critérios de verificação:
 
 ## 9. Server Action `acceptInvite`
 
-Status: pendente.
+Status: concluído.
 
 Critérios de verificação:
 
