@@ -1,0 +1,21 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(gh auth *)",
+      "Bash(gh pr *)",
+      "Bash(npm run *)",
+      "Bash(curl -sI http://localhost:3000/)",
+      "Bash(curl -sI http://localhost:3000/login)",
+      "Bash(curl -sI http://localhost:3000/cadastro)",
+      "Bash(curl -sI http://localhost:3000/trainer)",
+      "Bash(curl -sI http://localhost:3000/student)",
+      "Bash(curl -sI http://localhost:3000/trainer/foo)",
+      "Bash(curl -sI http://localhost:3000/student/foo)",
+      "Bash(powershell -Command 'Stop-Process -Id 14180 -Force -ErrorAction SilentlyContinue; Get-NetTCPConnection -LocalPort 3000 -ErrorAction SilentlyContinue | Select-Object -ExpandProperty OwningProcess | ForEach-Object { Stop-Process -Id $_ -Force -ErrorAction SilentlyContinue }')",
+      "Bash(curl -sI http://localhost:3001/trainer)",
+      "Bash(curl -sI http://localhost:3001/student)",
+      "Bash(curl -sI http://localhost:3001/trainer/foo)",
+      "Bash(curl -sI http://localhost:3001/login)"
+    ]
+  }
+}

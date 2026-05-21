@@ -15,11 +15,15 @@ function getLoginErrorMessage(message: string) {
     return "Email ou senha inválidos. Confira os dados e tente novamente.";
   }
 
-  if (normalizedMessage.includes("email")) {
+  if (normalizedMessage.includes("email not confirmed")) {
+    return "Confirme seu email antes de entrar. Verifique sua caixa de entrada.";
+  }
+
+  if (normalizedMessage.includes("invalid email")) {
     return "Informe um email válido para entrar.";
   }
 
-  return "Não foi possível entrar agora. Tente novamente em instantes.";
+  return `Não foi possível entrar agora (${message}).`;
 }
 
 export function LoginForm() {
