@@ -15,7 +15,13 @@
       "Bash(curl -sI http://localhost:3001/trainer)",
       "Bash(curl -sI http://localhost:3001/student)",
       "Bash(curl -sI http://localhost:3001/trainer/foo)",
-      "Bash(curl -sI http://localhost:3001/login)"
+      "Bash(curl -sI http://localhost:3001/login)",
+      "Bash(uv tool *)",
+      "Bash(graphify --help)",
+      "Bash(graphify install *)",
+      "Bash(git add *)",
+      "Bash(git commit -m ' *)",
+      "Bash(git checkout *)"
     ]
   }
 }
