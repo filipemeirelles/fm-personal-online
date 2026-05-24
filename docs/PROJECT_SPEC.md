@@ -166,9 +166,10 @@ docs/
 
 ### Modelo de Dados (inicial)
 ```txt
-users          → id, email, role (trainer|student), name, created_at
-trainers       → id, user_id, bio, created_at
-students       → id, user_id, trainer_id, active, created_at
+auth.users     → id, email, created_at
+profiles       → id, name, role (trainer|student), created_at
+trainers       → id, profile_id, bio, created_at
+students       → id, profile_id, trainer_id, active, created_at
 workout_plans  → id, trainer_id, student_id, name, description, active, created_at
 exercises      → id, workout_plan_id, name, sets, reps, load, rest, notes, order
 workout_logs   → id, student_id, workout_plan_id, completed_at, notes
@@ -191,8 +192,10 @@ exercise_logs  → id, workout_log_id, exercise_id, actual_load, notes, created_
 
 ### Sprint 1 — Autenticação
 - [x] Detalhar escopo técnico e visual da autenticação
-- [ ] Página de login
-- [ ] Página de cadastro
+- [x] Página de login visual, sem integração com Supabase
+- [x] Página de cadastro visual, sem integração com Supabase
+- [x] Instalar e configurar client inicial do Supabase
+- [x] Criar migration inicial de `profiles` com RLS
 - [ ] Middleware de proteção de rotas
 - [ ] Redirecionamento por perfil (trainer/student)
 

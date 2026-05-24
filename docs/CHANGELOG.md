@@ -50,3 +50,135 @@ O formato segue uma versão simplificada de changelog por etapas de desenvolvime
 - `docs/AUTH_SPEC.md` com escopo da autenticação para o MVP.
 - Definição da primeira etapa visual: páginas `/login` e `/cadastro` sem integração com Supabase.
 - Critérios de aceite para manter a Sprint 1 pequena e orientada por especificação.
+
+## 2026-05-20 — Sprint 1: páginas visuais de autenticação
+
+### Adicionado
+
+- Página `/login` com formulário visual de email e senha.
+- Página `/cadastro` com formulário visual de nome, email, senha e seleção de perfil.
+- Navegação visual entre login e cadastro.
+
+### Observação
+
+- As páginas ainda não conectam Supabase, não criam sessão e não validam credenciais reais.
+
+## 2026-05-20 — Sprint 1: decisão de modelo de autenticação
+
+### Alterado
+
+- Modelo inicial atualizado para usar `auth.users` do Supabase e tabela `profiles` para dados públicos e role.
+- Referências de `trainers` e `students` ajustadas para `profile_id`.
+- `docs/AUTH_SPEC.md` atualizado para refletir a decisão antes da implementação real do Supabase.
+
+## 2026-05-20 — Sprint 1: configuração inicial do Supabase client
+
+### Adicionado
+
+- Dependência `@supabase/supabase-js`.
+- Browser client inicial em `src/lib/supabase/client.ts`.
+- Tipagem inicial do banco em `src/types/database.ts`, começando por `profiles`.
+
+### Observação
+
+- Os formulários de login e cadastro ainda não executam autenticação real.
+
+## 2026-05-20 — Sprint 1: migration inicial de profiles
+
+### Adicionado
+
+- `supabase/migrations/001_create_profiles.sql` com tabela `profiles`.
+- RLS habilitada para `profiles`.
+- Políticas para usuário autenticado visualizar, inserir e atualizar o próprio perfil.
+- Trigger para atualizar `updated_at` automaticamente.
+
+### Observação
+
+- A migration ainda precisa ser aplicada em um projeto Supabase local ou remoto.
+
+## 2026-05-20 — Reorganização spec-driven
+
+### Adicionado
+
+- Estrutura `.specs/` para documentação orientada por Specify, Design, Tasks e Execute.
+- Documentos de projeto em `.specs/project/`.
+- Documentos técnicos de codebase em `.specs/codebase/`.
+- Feature spec do design system em `.specs/features/design-system/`.
+
+### Alterado
+
+- `README.md` atualizado para apontar para a nova estrutura `.specs/`.
+
+### Observação
+
+- Nenhum código funcional do app foi alterado nesta reorganização.
+
+## 2026-05-20 — Spec de autenticação em `.specs/`
+
+### Adicionado
+
+- Feature spec de autenticação em `.specs/features/auth/`.
+- `spec.md`, `design.md` e `tasks.md` para guiar as próximas etapas de autenticação.
+
+### Alterado
+
+- Roadmap e estado do projeto atualizados para refletir a spec de autenticação no novo fluxo.
+
+## 2026-05-20 — Configuração local do Supabase CLI
+
+### Adicionado
+
+- `supabase/config.toml` gerado pelo Supabase CLI.
+- `supabase/.gitignore` para ignorar arquivos temporários e ambientes locais do Supabase.
+
+### Alterado
+
+- Configuração local ajustada para `http://localhost:3000`.
+- Seed local desabilitado enquanto não houver arquivo de seed versionado.
+
+### Observação
+
+- A migration ainda não foi aplicada porque Docker não está disponível no terminal atual e nenhum projeto remoto foi linkado.
+
+## 2026-05-20 — Migration aplicada no Supabase remoto
+
+### Alterado
+
+- Projeto Supabase remoto `emvisxoadtdeojddvumd` linkado via CLI.
+- Migration `001_create_profiles.sql` aplicada com `npx supabase db push`.
+- Specs atualizadas para marcar a aplicação da migration como concluída.
+
+### Validado
+
+- `npx supabase migration list` confirmou `Local 001 | Remote 001`.
+
+## 2026-05-20 — Cadastro conectado ao Supabase Auth
+
+### Adicionado
+
+- Formulário funcional de cadastro em `/cadastro`.
+- Migration `002_create_profile_on_signup.sql` para criar `profiles` automaticamente após signup.
+- Mensagens de sucesso e erro em português brasileiro.
+
+### Validado
+
+- `npx supabase migration list` confirmou `Local 001/002 | Remote 001/002`.
+
+### Observação
+
+- Login funcional, logout, dashboards e proteção de rotas permanecem fora desta etapa.
+
+## 2026-05-20 — Login e proteção inicial de rotas
+
+### Adicionado
+
+- Login funcional em `/login` usando Supabase Auth.
+- Redirecionamento por perfil para `/trainer` ou `/student`.
+- Placeholders mínimos para área do personal e área da aluna.
+- Logout funcional.
+- Middleware para proteger `/trainer` e `/student` por sessão e role.
+- `@supabase/ssr` para persistência de sessão em cookies.
+
+### Observação
+
+- Os painéis são placeholders; gestão de alunas, treinos e dashboards reais continuam fora desta etapa.

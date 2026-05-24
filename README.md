@@ -1,8 +1,8 @@
 # FM Personal Online
 
-Plataforma web para personal trainers que atuam com consultoria online. Centraliza a gestão de alunos, prescrição de treinos e acompanhamento de evolução.
+Plataforma web para personal trainers que atuam com consultoria online. Centraliza a gestão de alunas, prescrição de treinos e acompanhamento de evolução.
 
-> Documentação completa: [`docs/PROJECT_SPEC.md`](./docs/PROJECT_SPEC.md)
+> Documentação principal: [`.specs/project/PROJECT.md`](./.specs/project/PROJECT.md)
 
 ---
 
@@ -42,11 +42,28 @@ Acesse `http://localhost:3000`.
 
 ## Status do projeto
 
-**Sprint 0 — Fundação** (em andamento)
+**Sprint 2 — Autenticação** (em andamento)
 
-Base Next.js, documentação inicial e design system da marca já configurados. Supabase e deploy ainda não foram configurados.
+Base Next.js, documentação inicial, design system da marca, páginas visuais de autenticação, client inicial do Supabase e migration inicial de `profiles` já configurados. A autenticação real, proteção de rotas e deploy ainda não foram concluídos.
 
-Veja o roadmap completo em [`docs/PROJECT_SPEC.md`](./docs/PROJECT_SPEC.md#9-roadmap-inicial).
+Veja o roadmap completo em [`.specs/project/ROADMAP.md`](./.specs/project/ROADMAP.md).
+
+## Documentação
+
+A documentação principal segue um fluxo de Spec Driven Development inspirado nas fases Specify, Design, Tasks e Execute.
+
+| Área | Arquivo |
+|---|---|
+| Visão do produto | [`.specs/project/PROJECT.md`](./.specs/project/PROJECT.md) |
+| Roadmap | [`.specs/project/ROADMAP.md`](./.specs/project/ROADMAP.md) |
+| Estado atual | [`.specs/project/STATE.md`](./.specs/project/STATE.md) |
+| Stack | [`.specs/codebase/STACK.md`](./.specs/codebase/STACK.md) |
+| Arquitetura | [`.specs/codebase/ARCHITECTURE.md`](./.specs/codebase/ARCHITECTURE.md) |
+| Convenções | [`.specs/codebase/CONVENTIONS.md`](./.specs/codebase/CONVENTIONS.md) |
+| Banco de dados | [`.specs/codebase/DATABASE.md`](./.specs/codebase/DATABASE.md) |
+| Design system | [`.specs/features/design-system/spec.md`](./.specs/features/design-system/spec.md) |
+
+O changelog permanece em [`docs/CHANGELOG.md`](./docs/CHANGELOG.md).
 
 ## Convenção de commits
 
@@ -58,4 +75,4 @@ Seguimos [Conventional Commits](https://www.conventionalcommits.org/):
 
 Exemplos: `feat(auth)`, `fix(workout)`, `docs(spec)`, `chore(config)`
 
-Detalhes completos na spec: [`docs/PROJECT_SPEC.md`](./docs/PROJECT_SPEC.md#10-padrão-de-commits)
+Detalhes completos em [`.specs/codebase/CONVENTIONS.md`](./.specs/codebase/CONVENTIONS.md).

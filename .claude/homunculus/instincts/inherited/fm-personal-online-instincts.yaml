@@ -1,0 +1,339 @@
+# Instincts generated from https://github.com/filipemeirelles/fm-personal-online
+# Generated: 2026-05-18T15:20:18.274Z
+# Version: 2.0
+# NOTE: This file supplements (does not replace) any existing curated instincts.
+# High-confidence manually curated instincts should be preserved alongside these.
+
+---
+id: fm-personal-online-commit-conventional
+trigger: "when writing a commit message"
+confidence: 0.85
+domain: git
+source: repo-analysis
+source_repo: https://github.com/filipemeirelles/fm-personal-online
+---
+
+# Fm Personal Online Commit Conventional
+
+## Action
+
+Use conventional commit format with prefixes: chore
+
+## Evidence
+
+- 1 commits analyzed
+- Detected conventional commit pattern
+- Examples: chore(config): inicializa projeto Next.js com TypeScript e Tailwind
+
+---
+id: fm-personal-online-commit-length
+trigger: "when writing a commit message"
+confidence: 0.6
+domain: git
+source: repo-analysis
+source_repo: https://github.com/filipemeirelles/fm-personal-online
+---
+
+# Fm Personal Online Commit Length
+
+## Action
+
+Write moderate-length commit messages (~67 characters)
+
+## Evidence
+
+- Average commit message length: 67 chars
+- Based on 1 commits
+
+---
+id: fm-personal-online-naming-files
+trigger: "when creating a new file"
+confidence: 0.8
+domain: code-style
+source: repo-analysis
+source_repo: https://github.com/filipemeirelles/fm-personal-online
+---
+
+# Fm Personal Online Naming Files
+
+## Action
+
+Use camelCase naming convention
+
+## Evidence
+
+- Analyzed file naming patterns in repository
+- Dominant pattern: camelCase
+
+---
+id: fm-personal-online-import-relative
+trigger: "when importing modules"
+confidence: 0.75
+domain: code-style
+source: repo-analysis
+source_repo: https://github.com/filipemeirelles/fm-personal-online
+---
+
+# Fm Personal Online Import Relative
+
+## Action
+
+Use relative imports for project files
+
+## Evidence
+
+- Import analysis shows relative import pattern
+- Example: import { x } from '../lib/x'
+
+---
+id: fm-personal-online-export-style
+trigger: "when exporting from a module"
+confidence: 0.7
+domain: code-style
+source: repo-analysis
+source_repo: https://github.com/filipemeirelles/fm-personal-online
+---
+
+# Fm Personal Online Export Style
+
+## Action
+
+Prefer mixed exports
+
+## Evidence
+
+- Export pattern analysis
+- Dominant style: mixed
+
+---
+id: fm-personal-online-arch-type-based
+trigger: "when adding new code"
+confidence: 0.8
+domain: architecture
+source: repo-analysis
+source_repo: https://github.com/filipemeirelles/fm-personal-online
+---
+
+# Fm Personal Online Arch Type Based
+
+## Action
+
+Place code in the appropriate type folder (components/, services/, utils/, etc.)
+
+## Evidence
+
+- Type-based module organization detected
+- Folders: app, components, hooks, lib, types
+
+---
+id: fm-personal-online-test-separate
+trigger: "when writing tests"
+confidence: 0.8
+domain: testing
+source: repo-analysis
+source_repo: https://github.com/filipemeirelles/fm-personal-online
+---
+
+# Fm Personal Online Test Separate
+
+## Action
+
+Place tests in the tests/ or __tests__/ directory, mirroring src structure
+
+## Evidence
+
+- Separate test directory pattern detected
+- Tests live in dedicated test folders
+
+---
+id: fm-personal-online-instinct-file-naming
+trigger: "When creating a new file"
+confidence: 0.8
+domain: code-style
+source: repo-analysis
+source_repo: filipemeirelles/fm-personal-online
+---
+
+# Fm Personal Online Instinct File Naming
+
+## Action
+
+Name the file using camelCase
+
+## Evidence
+
+- Pattern in codeStyle.namingConventions.files
+
+---
+id: fm-personal-online-instinct-function-naming
+trigger: "When defining a new function"
+confidence: 0.8
+domain: code-style
+source: repo-analysis
+source_repo: filipemeirelles/fm-personal-online
+---
+
+# Fm Personal Online Instinct Function Naming
+
+## Action
+
+Name the function using camelCase
+
+## Evidence
+
+- Pattern in codeStyle.namingConventions.functions
+
+---
+id: fm-personal-online-instinct-class-naming
+trigger: "When defining a new class"
+confidence: 0.8
+domain: code-style
+source: repo-analysis
+source_repo: filipemeirelles/fm-personal-online
+---
+
+# Fm Personal Online Instinct Class Naming
+
+## Action
+
+Name the class using PascalCase
+
+## Evidence
+
+- Pattern in codeStyle.namingConventions.classes
+
+---
+id: fm-personal-online-instinct-constant-naming
+trigger: "When declaring a constant"
+confidence: 0.8
+domain: code-style
+source: repo-analysis
+source_repo: filipemeirelles/fm-personal-online
+---
+
+# Fm Personal Online Instinct Constant Naming
+
+## Action
+
+Name the constant using SCREAMING_SNAKE_CASE
+
+## Evidence
+
+- Pattern in codeStyle.namingConventions.constants
+
+---
+id: fm-personal-online-instinct-import-style
+trigger: "When importing modules"
+confidence: 0.8
+domain: code-style
+source: repo-analysis
+source_repo: filipemeirelles/fm-personal-online
+---
+
+# Fm Personal Online Instinct Import Style
+
+## Action
+
+Use relative import paths
+
+## Evidence
+
+- Pattern in codeStyle.importStyle
+
+---
+id: fm-personal-online-instinct-export-style
+trigger: "When exporting modules or members"
+confidence: 0.7
+domain: code-style
+source: repo-analysis
+source_repo: filipemeirelles/fm-personal-online
+---
+
+# Fm Personal Online Instinct Export Style
+
+## Action
+
+Use both named and default exports as appropriate (mixed style)
+
+## Evidence
+
+- Pattern in codeStyle.exportStyle
+
+---
+id: fm-personal-online-instinct-commit-format
+trigger: "When writing a commit message"
+confidence: 0.9
+domain: git
+source: repo-analysis
+source_repo: filipemeirelles/fm-personal-online
+---
+
+# Fm Personal Online Instinct Commit Format
+
+## Action
+
+Use the conventional commit format with the 'chore' prefix and a descriptive message
+
+## Evidence
+
+- Seen in commit: chore(config): inicializa projeto Next.js com TypeScript e Tailwind
+- Pattern in commits.prefixes
+
+---
+id: fm-personal-online-instinct-commit-length
+trigger: "When writing a commit message"
+confidence: 0.7
+domain: git
+source: repo-analysis
+source_repo: filipemeirelles/fm-personal-online
+---
+
+# Fm Personal Online Instinct Commit Length
+
+## Action
+
+Keep the commit message concise, around 67 characters on average
+
+## Evidence
+
+- Pattern in commits.averageLength
+
+---
+id: fm-personal-online-instinct-folder-structure
+trigger: "When adding new source code"
+confidence: 0.8
+domain: architecture
+source: repo-analysis
+source_repo: filipemeirelles/fm-personal-online
+---
+
+# Fm Personal Online Instinct Folder Structure
+
+## Action
+
+Place code in type-based folders under 'src' (e.g., app, components, hooks, lib, types)
+
+## Evidence
+
+- Pattern in architecture.folderStructure.srcLayout
+- Pattern in architecture.moduleOrganization
+
+---
+id: fm-personal-online-instinct-test-location
+trigger: "When adding new tests"
+confidence: 0.7
+domain: testing
+source: repo-analysis
+source_repo: filipemeirelles/fm-personal-online
+---
+
+# Fm Personal Online Instinct Test Location
+
+## Action
+
+Place tests in a separate location from source code
+
+## Evidence
+
+- Pattern in architecture.folderStructure.testLocation
+
