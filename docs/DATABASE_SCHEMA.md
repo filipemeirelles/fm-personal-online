@@ -6,15 +6,24 @@ Definir o modelo inicial de dados do MVP antes da implementação no Supabase.
 
 ## Entidades principais
 
-### users
+### auth.users
 
-Representa usuários autenticados da aplicação.
+Tabela nativa do Supabase Auth. Deve ser usada apenas para autenticação, email e identidade base do usuário.
 
 ```txt
 id uuid primary key
-email text unique not null
-role text not null check role in ('trainer', 'student')
+email text unique
+created_at timestamptz
+```
+
+### profiles
+
+Representa os dados públicos e o perfil de acesso do usuário autenticado.
+
+```txt
+id uuid primary key references auth.users(id) on delete cascade
 name text not null
+role text not null check role in ('trainer', 'student')
 created_at timestamptz default now()
 updated_at timestamptz default now()
 ```
@@ -25,7 +34,7 @@ Perfil profissional do personal trainer.
 
 ```txt
 id uuid primary key
-user_id uuid references users(id)
+profile_id uuid references profiles(id)
 bio text
 created_at timestamptz default now()
 updated_at timestamptz default now()
@@ -37,7 +46,7 @@ Alunos vinculados a um trainer.
 
 ```txt
 id uuid primary key
-user_id uuid references users(id)
+profile_id uuid references profiles(id)
 trainer_id uuid references trainers(id)
 active boolean default true
 created_at timestamptz default now()
@@ -109,6 +118,20 @@ created_at timestamptz default now()
 
 ## RLS — Regras iniciais
 
+As políticas devem usar `auth.uid()` como base de identidade e comparar esse valor com `profiles.id`.
+
+### Migration inicial
+
+O primeiro arquivo SQL versionado está em:
+
+```txt
+supabase/migrations/001_create_profiles.sql
+```
+
+Ele cria a tabela `profiles`, ativa RLS e adiciona políticas para o usuário autenticado visualizar, inserir e atualizar o próprio perfil.
+
+Essa migration ainda precisa ser aplicada em um projeto Supabase local ou remoto em etapa própria.
+
 ### Trainer
 
 - Pode visualizar apenas alunos vinculados a ele.
@@ -123,9 +146,12 @@ created_at timestamptz default now()
 - Pode criar logs apenas para seus próprios treinos.
 - Não pode editar plano de treino.
 
+## Decisão definida
+
+- Usar `auth.users` do Supabase para autenticação e `profiles` para dados públicos e role do usuário.
+
 ## Decisões pendentes
 
-- Confirmar se `users` será tabela própria ou `profiles` vinculada diretamente ao `auth.users` do Supabase.
 - Decidir se `exercises` será uma biblioteca global ou apenas exercícios por plano no MVP.
 - Decidir se haverá `workout_days` para separar Treino A, B, C dentro do mesmo plano.
 - Definir política de imutabilidade dos logs após 24 horas.

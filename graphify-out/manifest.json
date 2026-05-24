@@ -1,0 +1,652 @@
+{
+  "C:\\Users\\demol\\Projetos\\fmpersonalwebapp\\fm-personal-online\\.eslintrc.json": {
+    "mtime": 1779283566.7647433,
+    "ast_hash": "f09740d526f714b8a04de7631b2e9c50",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\demol\\Projetos\\fmpersonalwebapp\\fm-personal-online\\next.config.ts": {
+    "mtime": 1779283566.7730029,
+    "ast_hash": "7b720ff2e4f61ab0c06d69da8101dd12",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\demol\\Projetos\\fmpersonalwebapp\\fm-personal-online\\package.json": {
+    "mtime": 1779378864.8097408,
+    "ast_hash": "d4b85337328ae241a19e04672a3bf658",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\demol\\Projetos\\fmpersonalwebapp\\fm-personal-online\\postcss.config.mjs": {
+    "mtime": 1779283566.7765236,
+    "ast_hash": "d1283e7566e136247b268494a6a545eb",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\demol\\Projetos\\fmpersonalwebapp\\fm-personal-online\\tailwind.config.ts": {
+    "mtime": 1779283861.0139897,
+    "ast_hash": "96eb887e29c12f901ca8fdbfb01dea69",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\demol\\Projetos\\fmpersonalwebapp\\fm-personal-online\\tsconfig.json": {
+    "mtime": 1779283566.7927155,
+    "ast_hash": "cfa4afed07c91fd928be2e6da3c8a2a6",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\demol\\Projetos\\fmpersonalwebapp\\fm-personal-online\\.agent\\skills\\ui-ux-pro-max\\scripts\\core.py": {
+    "mtime": 1779378269.109601,
+    "ast_hash": "3df4734a785963a8242a56c1b926adfd",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\demol\\Projetos\\fmpersonalwebapp\\fm-personal-online\\.agent\\skills\\ui-ux-pro-max\\scripts\\design_system.py": {
+    "mtime": 1779378269.1147938,
+    "ast_hash": "08f84d04608a19049c90fc2b1ef314f9",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\demol\\Projetos\\fmpersonalwebapp\\fm-personal-online\\.agent\\skills\\ui-ux-pro-max\\scripts\\search.py": {
+    "mtime": 1779378269.118325,
+    "ast_hash": "8c7e35426fe8f6f3ed91e9dce0ed7af1",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\demol\\Projetos\\fmpersonalwebapp\\fm-personal-online\\.claude\\skills\\ui-ux-pro-max\\scripts\\core.py": {
+    "mtime": 1779378269.109601,
+    "ast_hash": "3df4734a785963a8242a56c1b926adfd",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\demol\\Projetos\\fmpersonalwebapp\\fm-personal-online\\.claude\\skills\\ui-ux-pro-max\\scripts\\design_system.py": {
+    "mtime": 1779378269.1147938,
+    "ast_hash": "08f84d04608a19049c90fc2b1ef314f9",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\demol\\Projetos\\fmpersonalwebapp\\fm-personal-online\\.claude\\skills\\ui-ux-pro-max\\scripts\\search.py": {
+    "mtime": 1779378269.118325,
+    "ast_hash": "8c7e35426fe8f6f3ed91e9dce0ed7af1",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\demol\\Projetos\\fmpersonalwebapp\\fm-personal-online\\.codebuddy\\skills\\ui-ux-pro-max\\scripts\\core.py": {
+    "mtime": 1779378269.109601,
+    "ast_hash": "3df4734a785963a8242a56c1b926adfd",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\demol\\Projetos\\fmpersonalwebapp\\fm-personal-online\\.codebuddy\\skills\\ui-ux-pro-max\\scripts\\design_system.py": {
+    "mtime": 1779378269.1147938,
+    "ast_hash": "08f84d04608a19049c90fc2b1ef314f9",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\demol\\Projetos\\fmpersonalwebapp\\fm-personal-online\\.codebuddy\\skills\\ui-ux-pro-max\\scripts\\search.py": {
+    "mtime": 1779378269.118325,
+    "ast_hash": "8c7e35426fe8f6f3ed91e9dce0ed7af1",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\demol\\Projetos\\fmpersonalwebapp\\fm-personal-online\\.codex\\skills\\ui-ux-pro-max\\scripts\\core.py": {
+    "mtime": 1779378269.109601,
+    "ast_hash": "3df4734a785963a8242a56c1b926adfd",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\demol\\Projetos\\fmpersonalwebapp\\fm-personal-online\\.codex\\skills\\ui-ux-pro-max\\scripts\\design_system.py": {
+    "mtime": 1779378269.1147938,
+    "ast_hash": "08f84d04608a19049c90fc2b1ef314f9",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\demol\\Projetos\\fmpersonalwebapp\\fm-personal-online\\.codex\\skills\\ui-ux-pro-max\\scripts\\search.py": {
+    "mtime": 1779378269.118325,
+    "ast_hash": "8c7e35426fe8f6f3ed91e9dce0ed7af1",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\demol\\Projetos\\fmpersonalwebapp\\fm-personal-online\\.continue\\skills\\ui-ux-pro-max\\scripts\\core.py": {
+    "mtime": 1779378269.109601,
+    "ast_hash": "3df4734a785963a8242a56c1b926adfd",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\demol\\Projetos\\fmpersonalwebapp\\fm-personal-online\\.continue\\skills\\ui-ux-pro-max\\scripts\\design_system.py": {
+    "mtime": 1779378269.1147938,
+    "ast_hash": "08f84d04608a19049c90fc2b1ef314f9",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\demol\\Projetos\\fmpersonalwebapp\\fm-personal-online\\.continue\\skills\\ui-ux-pro-max\\scripts\\search.py": {
+    "mtime": 1779378269.118325,
+    "ast_hash": "8c7e35426fe8f6f3ed91e9dce0ed7af1",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\demol\\Projetos\\fmpersonalwebapp\\fm-personal-online\\.cursor\\skills\\ui-ux-pro-max\\scripts\\core.py": {
+    "mtime": 1779378269.109601,
+    "ast_hash": "3df4734a785963a8242a56c1b926adfd",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\demol\\Projetos\\fmpersonalwebapp\\fm-personal-online\\.cursor\\skills\\ui-ux-pro-max\\scripts\\design_system.py": {
+    "mtime": 1779378269.1147938,
+    "ast_hash": "08f84d04608a19049c90fc2b1ef314f9",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\demol\\Projetos\\fmpersonalwebapp\\fm-personal-online\\.cursor\\skills\\ui-ux-pro-max\\scripts\\search.py": {
+    "mtime": 1779378269.118325,
+    "ast_hash": "8c7e35426fe8f6f3ed91e9dce0ed7af1",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\demol\\Projetos\\fmpersonalwebapp\\fm-personal-online\\.gemini\\skills\\ui-ux-pro-max\\scripts\\core.py": {
+    "mtime": 1779378269.109601,
+    "ast_hash": "3df4734a785963a8242a56c1b926adfd",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\demol\\Projetos\\fmpersonalwebapp\\fm-personal-online\\.gemini\\skills\\ui-ux-pro-max\\scripts\\design_system.py": {
+    "mtime": 1779378269.1147938,
+    "ast_hash": "08f84d04608a19049c90fc2b1ef314f9",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\demol\\Projetos\\fmpersonalwebapp\\fm-personal-online\\.gemini\\skills\\ui-ux-pro-max\\scripts\\search.py": {
+    "mtime": 1779378269.118325,
+    "ast_hash": "8c7e35426fe8f6f3ed91e9dce0ed7af1",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\demol\\Projetos\\fmpersonalwebapp\\fm-personal-online\\.github\\prompts\\ui-ux-pro-max\\scripts\\core.py": {
+    "mtime": 1779378269.109601,
+    "ast_hash": "3df4734a785963a8242a56c1b926adfd",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\demol\\Projetos\\fmpersonalwebapp\\fm-personal-online\\.github\\prompts\\ui-ux-pro-max\\scripts\\design_system.py": {
+    "mtime": 1779378269.1147938,
+    "ast_hash": "08f84d04608a19049c90fc2b1ef314f9",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\demol\\Projetos\\fmpersonalwebapp\\fm-personal-online\\.github\\prompts\\ui-ux-pro-max\\scripts\\search.py": {
+    "mtime": 1779378269.118325,
+    "ast_hash": "8c7e35426fe8f6f3ed91e9dce0ed7af1",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\demol\\Projetos\\fmpersonalwebapp\\fm-personal-online\\.kiro\\steering\\ui-ux-pro-max\\scripts\\core.py": {
+    "mtime": 1779378269.109601,
+    "ast_hash": "3df4734a785963a8242a56c1b926adfd",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\demol\\Projetos\\fmpersonalwebapp\\fm-personal-online\\.kiro\\steering\\ui-ux-pro-max\\scripts\\design_system.py": {
+    "mtime": 1779378269.1147938,
+    "ast_hash": "08f84d04608a19049c90fc2b1ef314f9",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\demol\\Projetos\\fmpersonalwebapp\\fm-personal-online\\.kiro\\steering\\ui-ux-pro-max\\scripts\\search.py": {
+    "mtime": 1779378269.118325,
+    "ast_hash": "8c7e35426fe8f6f3ed91e9dce0ed7af1",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\demol\\Projetos\\fmpersonalwebapp\\fm-personal-online\\.opencode\\package.json": {
+    "mtime": 1779634392.8338573,
+    "ast_hash": "29cf10a30b8641e1800fea4fbec7d37b",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\demol\\Projetos\\fmpersonalwebapp\\fm-personal-online\\.opencode\\skills\\ui-ux-pro-max\\scripts\\core.py": {
+    "mtime": 1779378269.109601,
+    "ast_hash": "3df4734a785963a8242a56c1b926adfd",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\demol\\Projetos\\fmpersonalwebapp\\fm-personal-online\\.opencode\\skills\\ui-ux-pro-max\\scripts\\design_system.py": {
+    "mtime": 1779378269.1147938,
+    "ast_hash": "08f84d04608a19049c90fc2b1ef314f9",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\demol\\Projetos\\fmpersonalwebapp\\fm-personal-online\\.opencode\\skills\\ui-ux-pro-max\\scripts\\search.py": {
+    "mtime": 1779378269.118325,
+    "ast_hash": "8c7e35426fe8f6f3ed91e9dce0ed7af1",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\demol\\Projetos\\fmpersonalwebapp\\fm-personal-online\\.planning\\config.json": {
+    "mtime": 1779634540.038242,
+    "ast_hash": "13a39e08ef724a0d79acc17f3c31dc61",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\demol\\Projetos\\fmpersonalwebapp\\fm-personal-online\\.qoder\\skills\\ui-ux-pro-max\\scripts\\core.py": {
+    "mtime": 1779378269.109601,
+    "ast_hash": "3df4734a785963a8242a56c1b926adfd",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\demol\\Projetos\\fmpersonalwebapp\\fm-personal-online\\.qoder\\skills\\ui-ux-pro-max\\scripts\\design_system.py": {
+    "mtime": 1779378269.1147938,
+    "ast_hash": "08f84d04608a19049c90fc2b1ef314f9",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\demol\\Projetos\\fmpersonalwebapp\\fm-personal-online\\.qoder\\skills\\ui-ux-pro-max\\scripts\\search.py": {
+    "mtime": 1779378269.118325,
+    "ast_hash": "8c7e35426fe8f6f3ed91e9dce0ed7af1",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\demol\\Projetos\\fmpersonalwebapp\\fm-personal-online\\.roo\\skills\\ui-ux-pro-max\\scripts\\core.py": {
+    "mtime": 1779378269.109601,
+    "ast_hash": "3df4734a785963a8242a56c1b926adfd",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\demol\\Projetos\\fmpersonalwebapp\\fm-personal-online\\.roo\\skills\\ui-ux-pro-max\\scripts\\design_system.py": {
+    "mtime": 1779378269.1147938,
+    "ast_hash": "08f84d04608a19049c90fc2b1ef314f9",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\demol\\Projetos\\fmpersonalwebapp\\fm-personal-online\\.roo\\skills\\ui-ux-pro-max\\scripts\\search.py": {
+    "mtime": 1779378269.118325,
+    "ast_hash": "8c7e35426fe8f6f3ed91e9dce0ed7af1",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\demol\\Projetos\\fmpersonalwebapp\\fm-personal-online\\.trae\\skills\\ui-ux-pro-max\\scripts\\core.py": {
+    "mtime": 1779378269.109601,
+    "ast_hash": "3df4734a785963a8242a56c1b926adfd",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\demol\\Projetos\\fmpersonalwebapp\\fm-personal-online\\.trae\\skills\\ui-ux-pro-max\\scripts\\design_system.py": {
+    "mtime": 1779378269.1147938,
+    "ast_hash": "08f84d04608a19049c90fc2b1ef314f9",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\demol\\Projetos\\fmpersonalwebapp\\fm-personal-online\\.trae\\skills\\ui-ux-pro-max\\scripts\\search.py": {
+    "mtime": 1779378269.118325,
+    "ast_hash": "8c7e35426fe8f6f3ed91e9dce0ed7af1",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\demol\\Projetos\\fmpersonalwebapp\\fm-personal-online\\.windsurf\\skills\\ui-ux-pro-max\\scripts\\core.py": {
+    "mtime": 1779378269.109601,
+    "ast_hash": "3df4734a785963a8242a56c1b926adfd",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\demol\\Projetos\\fmpersonalwebapp\\fm-personal-online\\.windsurf\\skills\\ui-ux-pro-max\\scripts\\design_system.py": {
+    "mtime": 1779378269.1147938,
+    "ast_hash": "08f84d04608a19049c90fc2b1ef314f9",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\demol\\Projetos\\fmpersonalwebapp\\fm-personal-online\\.windsurf\\skills\\ui-ux-pro-max\\scripts\\search.py": {
+    "mtime": 1779378269.118325,
+    "ast_hash": "8c7e35426fe8f6f3ed91e9dce0ed7af1",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\demol\\Projetos\\fmpersonalwebapp\\fm-personal-online\\src\\middleware.ts": {
+    "mtime": 1779376242.4953246,
+    "ast_hash": "89736963b3456a0f348c3c54fdeaf330",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\demol\\Projetos\\fmpersonalwebapp\\fm-personal-online\\src\\app\\layout.tsx": {
+    "mtime": 1779283566.7785883,
+    "ast_hash": "d7ed7f5c8e5cdf8bcb9defa8b13d5d54",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\demol\\Projetos\\fmpersonalwebapp\\fm-personal-online\\src\\app\\page.tsx": {
+    "mtime": 1779283861.032948,
+    "ast_hash": "f151971093b6bc9c1846112f6abf10e3",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\demol\\Projetos\\fmpersonalwebapp\\fm-personal-online\\src\\app\\(auth)\\cadastro\\cadastro-form.tsx": {
+    "mtime": 1779296545.2984965,
+    "ast_hash": "e374768a5f7f31630feaf4a8d2c94b0d",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\demol\\Projetos\\fmpersonalwebapp\\fm-personal-online\\src\\app\\(auth)\\cadastro\\page.tsx": {
+    "mtime": 1779562718.9594781,
+    "ast_hash": "b39bfdbdcd543028f75a4cb284515e97",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\demol\\Projetos\\fmpersonalwebapp\\fm-personal-online\\src\\app\\(auth)\\login\\login-form.tsx": {
+    "mtime": 1779562718.9474485,
+    "ast_hash": "951c2c207a2dbc48903504c6823ff42c",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\demol\\Projetos\\fmpersonalwebapp\\fm-personal-online\\src\\app\\(auth)\\login\\page.tsx": {
+    "mtime": 1779562718.9509766,
+    "ast_hash": "d2169c7e44bf9532f37daf64e9724713",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\demol\\Projetos\\fmpersonalwebapp\\fm-personal-online\\src\\app\\(dashboard)\\student\\page.tsx": {
+    "mtime": 1779296482.1771836,
+    "ast_hash": "06713b177bf76aca866e979bb8b2e61d",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\demol\\Projetos\\fmpersonalwebapp\\fm-personal-online\\src\\app\\(dashboard)\\trainer\\page.tsx": {
+    "mtime": 1779296482.1740868,
+    "ast_hash": "e6be12b7482f0a9b765d75b20c5d3ac3",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\demol\\Projetos\\fmpersonalwebapp\\fm-personal-online\\src\\app\\(dashboard)\\trainer\\alunas\\actions.ts": {
+    "mtime": 1779562846.317436,
+    "ast_hash": "48bb1f75d81baa772bc9c2c6a67d10cd",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\demol\\Projetos\\fmpersonalwebapp\\fm-personal-online\\src\\app\\(dashboard)\\trainer\\alunas\\invite-form.tsx": {
+    "mtime": 1779379081.3081172,
+    "ast_hash": "8502077719e12b32441d854744fce6ee",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\demol\\Projetos\\fmpersonalwebapp\\fm-personal-online\\src\\app\\(dashboard)\\trainer\\alunas\\page.tsx": {
+    "mtime": 1779379064.4653962,
+    "ast_hash": "3b2180f1dd1ee5a1295125dcadac2174",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\demol\\Projetos\\fmpersonalwebapp\\fm-personal-online\\src\\app\\(dashboard)\\trainer\\alunas\\pending-invite-actions.tsx": {
+    "mtime": 1779379092.3891294,
+    "ast_hash": "67ee8aa40809998559475c1ce74f8372",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\demol\\Projetos\\fmpersonalwebapp\\fm-personal-online\\src\\app\\(dashboard)\\trainer\\alunas\\[id]\\deactivate-student-button.tsx": {
+    "mtime": 1779562676.0401783,
+    "ast_hash": "6adf3ff0c6a6b1e78debfbaacd2866da",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\demol\\Projetos\\fmpersonalwebapp\\fm-personal-online\\src\\app\\(dashboard)\\trainer\\alunas\\[id]\\page.tsx": {
+    "mtime": 1779562676.042181,
+    "ast_hash": "86975ab86bcd2616cd8dd5f2868afb81",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\demol\\Projetos\\fmpersonalwebapp\\fm-personal-online\\src\\app\\convite\\[token]\\accept-form.tsx": {
+    "mtime": 1779379457.621362,
+    "ast_hash": "c614ace8e123a7f166cfc22a028cb59f",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\demol\\Projetos\\fmpersonalwebapp\\fm-personal-online\\src\\app\\convite\\[token]\\actions.ts": {
+    "mtime": 1779379445.8940625,
+    "ast_hash": "3a3d9a765d0dcd5d664decb248dcb70e",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\demol\\Projetos\\fmpersonalwebapp\\fm-personal-online\\src\\app\\convite\\[token]\\page.tsx": {
+    "mtime": 1779379475.8150706,
+    "ast_hash": "92bd5e78a1aecd50a124b423307ffe43",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\demol\\Projetos\\fmpersonalwebapp\\fm-personal-online\\src\\app\\style-guide\\page.tsx": {
+    "mtime": 1779283906.949896,
+    "ast_hash": "ea7da4145efe9cde80cbb87624250840",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\demol\\Projetos\\fmpersonalwebapp\\fm-personal-online\\src\\components\\auth\\logout-button.tsx": {
+    "mtime": 1779296482.1699827,
+    "ast_hash": "7830122137b904c0a68aa586ceb55b44",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\demol\\Projetos\\fmpersonalwebapp\\fm-personal-online\\src\\components\\shared\\page-header.tsx": {
+    "mtime": 1779283861.030891,
+    "ast_hash": "5c3f2b16ee566c1d4dab56b7a89d4334",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\demol\\Projetos\\fmpersonalwebapp\\fm-personal-online\\src\\components\\ui\\badge.tsx": {
+    "mtime": 1779283861.0296645,
+    "ast_hash": "ff68e21305b8849f2c27ea811784bcdf",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\demol\\Projetos\\fmpersonalwebapp\\fm-personal-online\\src\\components\\ui\\button.tsx": {
+    "mtime": 1779283861.0180318,
+    "ast_hash": "614f03de48b9f7b8c3b7defec25c03bd",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\demol\\Projetos\\fmpersonalwebapp\\fm-personal-online\\src\\components\\ui\\card.tsx": {
+    "mtime": 1779283861.0190272,
+    "ast_hash": "9f12c9d0613e74094ae8c76bbfcd164a",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\demol\\Projetos\\fmpersonalwebapp\\fm-personal-online\\src\\components\\ui\\input.tsx": {
+    "mtime": 1779283861.0202043,
+    "ast_hash": "6bf154fe127d4f3f4c4585e184f3d0c4",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\demol\\Projetos\\fmpersonalwebapp\\fm-personal-online\\src\\components\\ui\\label.tsx": {
+    "mtime": 1779283861.0286548,
+    "ast_hash": "ae43f9b70a489eb98d2d2a5f9cfa8371",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\demol\\Projetos\\fmpersonalwebapp\\fm-personal-online\\src\\lib\\utils.ts": {
+    "mtime": 1779283566.790199,
+    "ast_hash": "ca96dda2747071a71cc0388e5bef5c40",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\demol\\Projetos\\fmpersonalwebapp\\fm-personal-online\\src\\lib\\supabase\\admin.ts": {
+    "mtime": 1779378849.3826456,
+    "ast_hash": "a31c8dab58153937dc8391f5d4e1ebaa",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\demol\\Projetos\\fmpersonalwebapp\\fm-personal-online\\src\\lib\\supabase\\client.ts": {
+    "mtime": 1779296394.4252634,
+    "ast_hash": "b0f198fafda42fa0baf12e50591f80b3",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\demol\\Projetos\\fmpersonalwebapp\\fm-personal-online\\src\\lib\\supabase\\middleware.ts": {
+    "mtime": 1779562718.94513,
+    "ast_hash": "ba2ecbfebb2ecbad70ff6b61f1cc1565",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\demol\\Projetos\\fmpersonalwebapp\\fm-personal-online\\src\\lib\\supabase\\server.ts": {
+    "mtime": 1779378962.4644616,
+    "ast_hash": "18f13058e02a873bb14848f6a3d2f17b",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\demol\\Projetos\\fmpersonalwebapp\\fm-personal-online\\src\\types\\database.ts": {
+    "mtime": 1779378590.164968,
+    "ast_hash": "f85d78d5c44af26068c80deed252990a",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\demol\\Projetos\\fmpersonalwebapp\\fm-personal-online\\src\\types\\index.ts": {
+    "mtime": 1779283566.791706,
+    "ast_hash": "84de32161ed1dac4478b45e04971058f",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\demol\\Projetos\\fmpersonalwebapp\\fm-personal-online\\supabase\\.temp\\linked-project.json": {
+    "mtime": 1779378528.2193193,
+    "ast_hash": "d0a5c83c1b3659e43871e330756f3240",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\demol\\Projetos\\fmpersonalwebapp\\fm-personal-online\\supabase\\migrations\\001_create_profiles.sql": {
+    "mtime": 1779286571.16443,
+    "ast_hash": "1b5d3297765d0c0d641b92fa687c4bc8",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\demol\\Projetos\\fmpersonalwebapp\\fm-personal-online\\supabase\\migrations\\002_create_profile_on_signup.sql": {
+    "mtime": 1779292050.5848634,
+    "ast_hash": "6f07e647c8cf243afe955129237e9647",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\demol\\Projetos\\fmpersonalwebapp\\fm-personal-online\\supabase\\migrations\\003_student_management.sql": {
+    "mtime": 1779378386.9896588,
+    "ast_hash": "37e834eeb40df430efba8286bb4d8c42",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\demol\\Projetos\\fmpersonalwebapp\\fm-personal-online\\README.md": {
+    "mtime": 1779289845.6662667,
+    "ast_hash": "438da8224771d7f603abb9833d1f8a4e",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\demol\\Projetos\\fmpersonalwebapp\\fm-personal-online\\.agent\\skills\\ui-ux-pro-max\\SKILL.md": {
+    "mtime": 1779378318.1479106,
+    "ast_hash": "b33a6a2bede0b68b6919ec33248476f8",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\demol\\Projetos\\fmpersonalwebapp\\fm-personal-online\\.claude\\skills\\ui-ux-pro-max\\SKILL.md": {
+    "mtime": 1779378317.9495184,
+    "ast_hash": "e092c3924799d4fc4194f994d8394cc3",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\demol\\Projetos\\fmpersonalwebapp\\fm-personal-online\\.codebuddy\\skills\\ui-ux-pro-max\\SKILL.md": {
+    "mtime": 1779378318.7874956,
+    "ast_hash": "e745b5a6c71379800b232a1ba32d16ec",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\demol\\Projetos\\fmpersonalwebapp\\fm-personal-online\\.codex\\skills\\ui-ux-pro-max\\SKILL.md": {
+    "mtime": 1779378318.4028587,
+    "ast_hash": "e745b5a6c71379800b232a1ba32d16ec",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\demol\\Projetos\\fmpersonalwebapp\\fm-personal-online\\.continue\\skills\\ui-ux-pro-max\\SKILL.md": {
+    "mtime": 1779378318.7379518,
+    "ast_hash": "e745b5a6c71379800b232a1ba32d16ec",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\demol\\Projetos\\fmpersonalwebapp\\fm-personal-online\\.cursor\\skills\\ui-ux-pro-max\\SKILL.md": {
+    "mtime": 1779378318.0262275,
+    "ast_hash": "9a05e2d49e962e177715637185a2f7f7",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\demol\\Projetos\\fmpersonalwebapp\\fm-personal-online\\.gemini\\skills\\ui-ux-pro-max\\SKILL.md": {
+    "mtime": 1779378318.508798,
+    "ast_hash": "e745b5a6c71379800b232a1ba32d16ec",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\demol\\Projetos\\fmpersonalwebapp\\fm-personal-online\\.github\\prompts\\ui-ux-pro-max\\PROMPT.md": {
+    "mtime": 1779378318.20102,
+    "ast_hash": "1e550095665080025a8463db62244767",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\demol\\Projetos\\fmpersonalwebapp\\fm-personal-online\\.kiro\\steering\\ui-ux-pro-max\\SKILL.md": {
+    "mtime": 1779378318.250847,
+    "ast_hash": "ea615ce14b80747516ce2dc7f0c2a646",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\demol\\Projetos\\fmpersonalwebapp\\fm-personal-online\\.opencode\\skills\\ui-ux-pro-max\\SKILL.md": {
+    "mtime": 1779378318.3007576,
+    "ast_hash": "e745b5a6c71379800b232a1ba32d16ec",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\demol\\Projetos\\fmpersonalwebapp\\fm-personal-online\\.qoder\\skills\\ui-ux-pro-max\\SKILL.md": {
+    "mtime": 1779378318.4541245,
+    "ast_hash": "e745b5a6c71379800b232a1ba32d16ec",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\demol\\Projetos\\fmpersonalwebapp\\fm-personal-online\\.roo\\skills\\ui-ux-pro-max\\SKILL.md": {
+    "mtime": 1779378318.3522308,
+    "ast_hash": "e2dcdd2806d73b5f91bfb5359ee7515a",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\demol\\Projetos\\fmpersonalwebapp\\fm-personal-online\\.specs\\codebase\\ARCHITECTURE.md": {
+    "mtime": 1779289791.5270956,
+    "ast_hash": "1882c92027a5184eaad861851baaac42",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\demol\\Projetos\\fmpersonalwebapp\\fm-personal-online\\.specs\\codebase\\CONCERNS.md": {
+    "mtime": 1779289791.539768,
+    "ast_hash": "6b8c5187b37242ad3d04b52a7a2ff70a",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\demol\\Projetos\\fmpersonalwebapp\\fm-personal-online\\.specs\\codebase\\CONVENTIONS.md": {
+    "mtime": 1779289791.5324137,
+    "ast_hash": "a2d4dee01870d6381f90bd2ce04b7bb3",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\demol\\Projetos\\fmpersonalwebapp\\fm-personal-online\\.specs\\codebase\\DATABASE.md": {
+    "mtime": 1779292182.1514237,
+    "ast_hash": "7cc0f343b2b729b48f9357328ab23c37",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\demol\\Projetos\\fmpersonalwebapp\\fm-personal-online\\.specs\\codebase\\INTEGRATIONS.md": {
+    "mtime": 1779296545.306461,
+    "ast_hash": "5813fc6df279c640a3dd9cdb3ceacca5",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\demol\\Projetos\\fmpersonalwebapp\\fm-personal-online\\.specs\\codebase\\STACK.md": {
+    "mtime": 1779289791.5245674,
+    "ast_hash": "4762b4f14e3d80dd4118ac4056a30305",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\demol\\Projetos\\fmpersonalwebapp\\fm-personal-online\\.specs\\codebase\\STRUCTURE.md": {
+    "mtime": 1779289791.534425,
+    "ast_hash": "af6e03331c1664eafb1ae825312e079e",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\demol\\Projetos\\fmpersonalwebapp\\fm-personal-online\\.specs\\codebase\\TESTING.md": {
+    "mtime": 1779289791.5357308,
+    "ast_hash": "1943da21baad5ae6af986bec0faeefe1",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\demol\\Projetos\\fmpersonalwebapp\\fm-personal-online\\.specs\\features\\auth\\design.md": {
+    "mtime": 1779296545.3033233,
+    "ast_hash": "877d99ef93bb57b86fd71e9c45deeebb",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\demol\\Projetos\\fmpersonalwebapp\\fm-personal-online\\.specs\\features\\auth\\spec.md": {
+    "mtime": 1779296545.3006828,
+    "ast_hash": "0ea023863a85a1e66eef3513b05daecf",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\demol\\Projetos\\fmpersonalwebapp\\fm-personal-online\\.specs\\features\\auth\\tasks.md": {
+    "mtime": 1779296545.3018193,
+    "ast_hash": "de2a5e9c63aa560fb4490f9fab6b0636",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\demol\\Projetos\\fmpersonalwebapp\\fm-personal-online\\.specs\\features\\design-system\\design.md": {
+    "mtime": 1779289791.5505445,
+    "ast_hash": "7bdc4f8911ed1e72f6cc32ca2f3226bf",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\demol\\Projetos\\fmpersonalwebapp\\fm-personal-online\\.specs\\features\\design-system\\spec.md": {
+    "mtime": 1779289791.5484688,
+    "ast_hash": "00c1d14956aa507f1bb33bb5e157e3f4",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\demol\\Projetos\\fmpersonalwebapp\\fm-personal-online\\.specs\\features\\design-system\\tasks.md": {
+    "mtime": 1779289791.5515409,
+    "ast_hash": "c36bacfbdcef78299d357418171d217f",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\demol\\Projetos\\fmpersonalwebapp\\fm-personal-online\\.specs\\features\\student-management\\design.md": {
+    "mtime": 1779377813.5364196,
+    "ast_hash": "ba249e58543d2e9addc36f311fca1792",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\demol\\Projetos\\fmpersonalwebapp\\fm-personal-online\\.specs\\features\\student-management\\spec.md": {
+    "mtime": 1779377759.7552009,
+    "ast_hash": "e0d7c27eaee61863bf86cde3b669bc6a",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\demol\\Projetos\\fmpersonalwebapp\\fm-personal-online\\.specs\\features\\student-management\\tasks.md": {
+    "mtime": 1779380127.2953491,
+    "ast_hash": "17b24a0d33e6ae4e7cee113783a253a5",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\demol\\Projetos\\fmpersonalwebapp\\fm-personal-online\\.specs\\project\\PROJECT.md": {
+    "mtime": 1779289791.5181665,
+    "ast_hash": "38118aa607dd697e6036d80ea595ef9f",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\demol\\Projetos\\fmpersonalwebapp\\fm-personal-online\\.specs\\project\\ROADMAP.md": {
+    "mtime": 1779562816.6480763,
+    "ast_hash": "203942d95573c0f1c9bfe12c923eccfe",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\demol\\Projetos\\fmpersonalwebapp\\fm-personal-online\\.specs\\project\\STATE.md": {
+    "mtime": 1779562816.6460772,
+    "ast_hash": "547aa0e5834c962575b9378213b683b0",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\demol\\Projetos\\fmpersonalwebapp\\fm-personal-online\\.trae\\skills\\ui-ux-pro-max\\SKILL.md": {
+    "mtime": 1779378318.6631312,
+    "ast_hash": "e745b5a6c71379800b232a1ba32d16ec",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\demol\\Projetos\\fmpersonalwebapp\\fm-personal-online\\.windsurf\\skills\\ui-ux-pro-max\\SKILL.md": {
+    "mtime": 1779378318.0901625,
+    "ast_hash": "9a05e2d49e962e177715637185a2f7f7",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\demol\\Projetos\\fmpersonalwebapp\\fm-personal-online\\docs\\AI_CODING_GUIDE.md": {
+    "mtime": 1779283566.7678924,
+    "ast_hash": "962c5bbfe75b1265e7e27317bed89bfe",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\demol\\Projetos\\fmpersonalwebapp\\fm-personal-online\\docs\\ARCHITECTURE.md": {
+    "mtime": 1779284597.4417932,
+    "ast_hash": "0bc70762d34c0669566ffd0448f71b27",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\demol\\Projetos\\fmpersonalwebapp\\fm-personal-online\\docs\\AUTH_SPEC.md": {
+    "mtime": 1779286591.6337335,
+    "ast_hash": "081f9e6e788bea6563c12b9af19c4ab8",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\demol\\Projetos\\fmpersonalwebapp\\fm-personal-online\\docs\\CHANGELOG.md": {
+    "mtime": 1779296545.3074553,
+    "ast_hash": "75ec8bab34f3eae1ad5fed95a7e5effb",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\demol\\Projetos\\fmpersonalwebapp\\fm-personal-online\\docs\\DATABASE_SCHEMA.md": {
+    "mtime": 1779286591.631662,
+    "ast_hash": "ead15081d336a6cb547e6868cff9b20d",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\demol\\Projetos\\fmpersonalwebapp\\fm-personal-online\\docs\\DESIGN_SYSTEM.md": {
+    "mtime": 1779284067.0851178,
+    "ast_hash": "d3d643e16c5d4c93bc9036cb7122c3a4",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\demol\\Projetos\\fmpersonalwebapp\\fm-personal-online\\docs\\DEVELOPMENT_WORKFLOW.md": {
+    "mtime": 1779283566.7719944,
+    "ast_hash": "56ba7d5b5faa431cb54f1cd3a42de6b2",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\demol\\Projetos\\fmpersonalwebapp\\fm-personal-online\\docs\\PROJECT_SPEC.md": {
+    "mtime": 1779286591.6348133,
+    "ast_hash": "83bff7aa58e96e7275a28d6b5010e032",
+    "semantic_hash": ""
+  }
+}

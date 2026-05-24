@@ -106,20 +106,45 @@ Textos sugeridos:
 
 ## Decisão Técnica Inicial
 
-Quando Supabase for configurado, a decisão recomendada é usar:
+Quando Supabase for configurado, a decisão definida é usar:
 
 - `auth.users` para autenticação nativa do Supabase;
 - tabela `profiles` para dados públicos do usuário e role (`trainer` ou `student`);
 - RLS baseada em `auth.uid()` e relacionamento entre trainer e student.
 
-Essa decisão ainda deve ser refletida em `docs/DATABASE_SCHEMA.md` antes da implementação real do banco.
+Essa decisão já está refletida em `docs/DATABASE_SCHEMA.md` e deve orientar a implementação real do banco.
+
+## Configuração do Supabase Client
+
+O pacote `@supabase/supabase-js` está instalado e o browser client inicial fica em:
+
+```txt
+src/lib/supabase/client.ts
+```
+
+Esse client usa as variáveis públicas:
+
+- `NEXT_PUBLIC_SUPABASE_URL`
+- `NEXT_PUBLIC_SUPABASE_ANON_KEY`
+
+Nesta etapa, o client ainda não é usado pelos formulários de login e cadastro. A integração real de autenticação deve ser feita em uma etapa separada.
+
+## Migration Inicial
+
+A primeira migration versionada está em:
+
+```txt
+supabase/migrations/001_create_profiles.sql
+```
+
+Ela cria a tabela `profiles` com RLS mínima para o próprio usuário autenticado. A migration ainda não conecta os formulários de login/cadastro ao Supabase.
 
 ## Critérios de Aceite da Primeira Etapa Visual
 
 - As páginas `/login` e `/cadastro` existem.
 - Todo texto visível está em português brasileiro.
 - As páginas usam o design system atual.
-- Não há integração com Supabase ainda.
+- O Supabase client pode existir, mas os formulários ainda não devem autenticar usuários.
 - Não há dashboard real.
 - `npm run lint` passa.
 - `npm run type-check` passa.
