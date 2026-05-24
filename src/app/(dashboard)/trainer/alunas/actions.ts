@@ -186,3 +186,36 @@ export async function resendInvite(
   revalidatePath("/trainer/alunas");
   return { ok: true, inviteId: data.id, link: buildInviteLink(data.token) };
 }
+
+export async function deactivateStudent(
+  studentId: string
+): Promise<SimpleActionResult> {
+  if (!studentId) {
+    return { ok: false, message: "Aluna inválida." };
+  }
+
+  const session = await requireTrainerSession();
+  if (!session.ok) return session;
+
+  const { supabase, trainerId } = session;
+
+  const { data, error } = await supabase
+    .from("profiles")
+    .update({ is_active: false })
+    .eq("id", studentId)
+    .eq("trainer_id", trainerId)
+    .eq("role", "student")
+    .select("id")
+    .single();
+
+  if (error || !data) {
+    return {
+      ok: false,
+      message: `Não foi possível desativar a aluna (${error?.message ?? "aluna não encontrada"}).`,
+    };
+  }
+
+  revalidatePath("/trainer/alunas");
+  revalidatePath(`/trainer/alunas/${studentId}`);
+  return { ok: true };
+}

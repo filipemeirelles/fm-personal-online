@@ -1,6 +1,5 @@
 "use client";
 
-import Link from "next/link";
 import { FormEvent, useState } from "react";
 import { useRouter } from "next/navigation";
 import { Button } from "@/components/ui/button";
@@ -60,13 +59,21 @@ export function LoginForm() {
 
       const { data: profile, error: profileError } = await supabase
         .from("profiles")
-        .select("role")
+        .select("role, is_active")
         .eq("id", data.user.id)
         .single();
 
       if (profileError || !profile) {
         setErrorMessage(
           "Sua conta foi encontrada, mas o perfil ainda não está configurado. Tente novamente em instantes."
+        );
+        return;
+      }
+
+      if (profile.role === "student" && !profile.is_active) {
+        await supabase.auth.signOut();
+        setErrorMessage(
+          "Seu acesso está suspenso. Fale com seu personal para reativar."
         );
         return;
       }
@@ -121,15 +128,8 @@ export function LoginForm() {
           {isSubmitting ? "Entrando..." : "Entrar"}
         </Button>
       </form>
-
       <p className="mt-6 text-center text-sm text-brand-gray">
-        Ainda não tem acesso?{" "}
-        <Link
-          href="/cadastro"
-          className="font-medium text-brand-charcoal underline decoration-brand-rose underline-offset-4 transition-colors hover:text-brand-rose"
-        >
-          Criar conta
-        </Link>
+        Alunas recebem acesso por convite enviado pelo personal.
       </p>
     </>
   );

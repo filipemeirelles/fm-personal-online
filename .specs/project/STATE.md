@@ -32,16 +32,20 @@
 
 ## Próximos Passos
 
-Sprint 3 está em andamento. Tasks 1-9 concluídas (specs, migration, types, admin/server client, server actions, listagem `/trainer/alunas`, página pública `/convite/[token]` com aceite). Fluxo end-to-end testado manualmente: trainer cria convite, copia link, aluna abre em outra sessão, define senha, é redirecionada para `/student`. Tasks restantes em ordem:
+Sprint 3 está implementada em código. Tasks 1-13 concluídas (specs, migration, types, admin/server client, server actions, listagem `/trainer/alunas`, página pública `/convite/[token]` com aceite, perfil individual `/trainer/alunas/[id]`, desativação por soft delete, bloqueio de aluna desativada no middleware e `/cadastro` público redirecionando para `/login?info=convite`).
 
-1. **Task 10** — Perfil individual `/trainer/alunas/[id]` (server component, carrega `profiles` por id filtrando `trainer_id = auth.uid()`, mostra nome/email/data de entrada e botão "Desativar acesso").
-2. **Task 11** — Server Action `deactivateStudent(studentId)` em `src/app/(dashboard)/trainer/alunas/actions.ts` (update `is_active = false` com guard de `trainer_id`).
-3. **Task 12** — Middleware bloqueia aluna desativada: ler `is_active` junto com `role` em `src/middleware.ts`, fazer signOut e redirect para `/login?info=acesso-suspenso`.
-4. **Task 13** — Desabilitar `/cadastro` público: server-side redirect para `/login?info=convite`. Atualizar `/login` para exibir banner contextual conforme `searchParams.info`.
-5. **Task 14** — Smoke test manual do fluxo de desativação e bloqueio.
-6. **Task 15** — Rodar `npm run lint`, `npm run type-check` e `npm run build` antes de abrir PR.
+Verificações automatizadas concluídas em 23/05/2026:
 
-Branch atual: `feat/sprint-3-student-management`. Após Task 15, abrir PR para `main`.
+1. `npm run lint` passou.
+2. `npm run type-check` passou.
+3. `npm run build` passou.
+
+Tasks restantes em ordem:
+
+1. **Task 14** — Smoke test manual do fluxo de desativação e bloqueio com Supabase remoto: trainer desativa aluna em `/trainer/alunas/[id]`, aluna desativada tenta acessar `/student`, sessão é encerrada e login mostra `Seu acesso está suspenso`.
+2. Abrir PR da branch `feat/sprint-3-student-management` para `main` após validar o smoke test manual.
+
+Branch atual: `feat/sprint-3-student-management`.
 
 Itens fora da Sprint 3 que continuam pendentes:
 
@@ -62,5 +66,5 @@ Itens fora da Sprint 3 que continuam pendentes:
 - Mapeamento de mensagens de erro do login foi melhorado para diferenciar credenciais inválidas, email não confirmado e expor a mensagem bruta do Supabase em casos não previstos.
 - Sprint 2 fechada após smoke test manual end-to-end: cadastro, login, redirect por role, logout, proteção de rotas e cross-protection trainer↔student.
 - Sprint 3 iniciada em branch `feat/sprint-3-student-management`. Migration `003_student_management.sql` aplicada no Supabase remoto (adiciona `is_active` e `trainer_id` em `profiles`, cria `student_invites`, função `get_invite_by_token` security definer, trigger anti-tampering em `profiles`, RLS para trainer ver/gerenciar alunas vinculadas).
-- Sprint 3 entregou: `src/lib/supabase/admin.ts` (service role server-only), `src/lib/supabase/server.ts` (client server com cookies), `src/app/(dashboard)/trainer/alunas/` (página + actions `createInvite`/`cancelInvite`/`resendInvite` + form e botões por linha), `src/app/convite/[token]/` (página pública + action `acceptInvite` que cria `auth.users` via admin, marca convite como aceito e loga a aluna).
-- Tasks 10 a 15 da Sprint 3 ainda não foram iniciadas. Ver "Próximos Passos".
+- Sprint 3 entregou: `src/lib/supabase/admin.ts` (service role server-only), `src/lib/supabase/server.ts` (client server com cookies), `src/app/(dashboard)/trainer/alunas/` (página + actions `createInvite`/`cancelInvite`/`resendInvite`/`deactivateStudent` + form e botões por linha), `src/app/(dashboard)/trainer/alunas/[id]/` (perfil individual com nome, email Auth, data de entrada, status e desativação), `src/app/convite/[token]/` (página pública + action `acceptInvite` que cria `auth.users` via admin, marca convite como aceito e loga a aluna), middleware bloqueando aluna desativada e `/cadastro` redirecionando para `/login?info=convite`.
+- Tasks 10 a 13 da Sprint 3 foram concluídas em 23/05/2026. `npm run lint`, `npm run type-check` e `npm run build` passaram. Falta apenas smoke test manual do bloqueio/desativação antes de abrir PR.

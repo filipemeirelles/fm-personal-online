@@ -41,12 +41,12 @@ Status: em andamento.
 
 ## Sprint 3 - Gestão de Alunas
 
-Status: planejada.
+Status: implementada em código; aguardando smoke test manual final.
 
-- [ ] Cadastro manual de alunas.
-- [ ] Listagem de alunas ativas.
-- [ ] Perfil individual da aluna.
-- [ ] Soft delete/desativação sem perda de histórico.
+- [x] Cadastro manual de alunas via convite.
+- [x] Listagem de alunas ativas.
+- [x] Perfil individual da aluna.
+- [x] Soft delete/desativação sem perda de histórico.
 
 ## Sprint 4 - Prescrição de Treinos
 

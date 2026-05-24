@@ -7,7 +7,20 @@ import {
 } from "@/components/ui/card";
 import { LoginForm } from "./login-form";
 
-export default function LoginPage() {
+interface LoginPageProps {
+  searchParams: Promise<{ info?: string }>;
+}
+
+const infoMessages: Record<string, string> = {
+  "acesso-suspenso":
+    "Seu acesso está suspenso. Fale com seu personal para reativar.",
+  convite: "O cadastro de alunas é feito por convite enviado pelo personal.",
+};
+
+export default async function LoginPage({ searchParams }: LoginPageProps) {
+  const { info } = await searchParams;
+  const infoMessage = info ? infoMessages[info] : null;
+
   return (
     <main className="min-h-screen bg-brand-offwhite px-6 py-10 md:px-10">
       <div className="mx-auto flex min-h-[calc(100vh-5rem)] w-full max-w-5xl items-center justify-center">
@@ -35,6 +48,11 @@ export default function LoginPage() {
               </CardDescription>
             </CardHeader>
             <CardContent>
+              {infoMessage && (
+                <p className="mb-5 rounded-lg border border-brand-rose/40 bg-brand-rose/10 px-4 py-3 text-sm text-brand-charcoal">
+                  {infoMessage}
+                </p>
+              )}
               <LoginForm />
             </CardContent>
           </Card>
