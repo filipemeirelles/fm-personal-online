@@ -41,7 +41,7 @@ Status: em andamento.
 
 ## Sprint 3 - Gestão de Alunas
 
-Status: implementada em código; aguardando smoke test manual final.
+Status: concluída em 24/05/2026 após smoke test manual end-to-end.
 
 - [x] Cadastro manual de alunas via convite.
 - [x] Listagem de alunas ativas.

@@ -32,25 +32,18 @@
 
 ## Próximos Passos
 
-Sprint 3 está implementada em código. Tasks 1-13 concluídas (specs, migration, types, admin/server client, server actions, listagem `/trainer/alunas`, página pública `/convite/[token]` com aceite, perfil individual `/trainer/alunas/[id]`, desativação por soft delete, bloqueio de aluna desativada no middleware e `/cadastro` público redirecionando para `/login?info=convite`).
+Sprint 3 fechada em 24/05/2026 após smoke test manual end-to-end (desativação de aluna pelo trainer, bloqueio no middleware com encerramento de sessão e mensagem `Seu acesso está suspenso` no login).
 
-Verificações automatizadas concluídas em 23/05/2026:
-
-1. `npm run lint` passou.
-2. `npm run type-check` passou.
-3. `npm run build` passou.
-
-Tasks restantes em ordem:
-
-1. **Task 14** — Smoke test manual do fluxo de desativação e bloqueio com Supabase remoto: trainer desativa aluna em `/trainer/alunas/[id]`, aluna desativada tenta acessar `/student`, sessão é encerrada e login mostra `Seu acesso está suspenso`.
-2. Abrir PR da branch `feat/sprint-3-student-management` para `main` após validar o smoke test manual.
+Próximo passo imediato: abrir PR da branch `feat/sprint-3-student-management` para `main`.
 
 Branch atual: `feat/sprint-3-student-management`.
 
-Itens fora da Sprint 3 que continuam pendentes:
+Itens pendentes que carregam para sprints futuras:
 
 - Reavaliar a confirmação de email do Supabase antes do deploy em produção.
 - Definir provedor de envio de email para automatizar a entrega do link de convite.
+- Adicionar `graphify-out/` e `.planning/graphs/` ao `.gitignore` (artefatos de ferramenta entraram no último commit).
+- Iniciar Sprint 4 — Prescrição de Treinos.
 
 ## Histórico Resumido
 
@@ -67,4 +60,5 @@ Itens fora da Sprint 3 que continuam pendentes:
 - Sprint 2 fechada após smoke test manual end-to-end: cadastro, login, redirect por role, logout, proteção de rotas e cross-protection trainer↔student.
 - Sprint 3 iniciada em branch `feat/sprint-3-student-management`. Migration `003_student_management.sql` aplicada no Supabase remoto (adiciona `is_active` e `trainer_id` em `profiles`, cria `student_invites`, função `get_invite_by_token` security definer, trigger anti-tampering em `profiles`, RLS para trainer ver/gerenciar alunas vinculadas).
 - Sprint 3 entregou: `src/lib/supabase/admin.ts` (service role server-only), `src/lib/supabase/server.ts` (client server com cookies), `src/app/(dashboard)/trainer/alunas/` (página + actions `createInvite`/`cancelInvite`/`resendInvite`/`deactivateStudent` + form e botões por linha), `src/app/(dashboard)/trainer/alunas/[id]/` (perfil individual com nome, email Auth, data de entrada, status e desativação), `src/app/convite/[token]/` (página pública + action `acceptInvite` que cria `auth.users` via admin, marca convite como aceito e loga a aluna), middleware bloqueando aluna desativada e `/cadastro` redirecionando para `/login?info=convite`.
-- Tasks 10 a 13 da Sprint 3 foram concluídas em 23/05/2026. `npm run lint`, `npm run type-check` e `npm run build` passaram. Falta apenas smoke test manual do bloqueio/desativação antes de abrir PR.
+- Tasks 10 a 13 da Sprint 3 foram concluídas em 23/05/2026. `npm run lint`, `npm run type-check` e `npm run build` passaram.
+- Sprint 3 fechada em 24/05/2026 após smoke test manual end-to-end. Pronta para abrir PR para `main`.
