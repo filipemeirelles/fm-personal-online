@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
+import { resolveVideoEmbed } from "@/lib/workout/video";
 import {
   deleteExercise,
   moveExercise,
@@ -214,16 +215,7 @@ export function ExerciseRow({ exercise, isFirst, isLast }: Props) {
           {exercise.notes && (
             <p className="text-xs text-brand-gray italic">{exercise.notes}</p>
           )}
-          {exercise.video_url && (
-            <a
-              href={exercise.video_url}
-              target="_blank"
-              rel="noreferrer"
-              className="text-xs font-medium text-brand-charcoal underline decoration-brand-rose underline-offset-2 hover:text-brand-rose"
-            >
-              Ver vídeo
-            </a>
-          )}
+          <ExerciseVideo url={exercise.video_url} />
         </div>
 
         <div className="flex flex-wrap items-center gap-2">
@@ -268,5 +260,47 @@ export function ExerciseRow({ exercise, isFirst, isLast }: Props) {
         <p className="mt-2 text-xs text-brand-rose">{errorMessage}</p>
       )}
     </div>
+  );
+}
+
+function ExerciseVideo({ url }: { url: string | null }) {
+  const embed = resolveVideoEmbed(url);
+  if (!embed) return null;
+
+  if (embed.type === "mp4") {
+    return (
+      <video
+        src={embed.src}
+        controls
+        playsInline
+        preload="metadata"
+        className="mt-2 w-full max-w-xs rounded-md border border-brand-beige"
+      />
+    );
+  }
+
+  if (embed.type === "youtube" || embed.type === "vimeo") {
+    return (
+      <div className="mt-2 aspect-video w-full max-w-xs overflow-hidden rounded-md border border-brand-beige">
+        <iframe
+          src={embed.src}
+          title="Vídeo do exercício"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowFullScreen
+          className="h-full w-full"
+        />
+      </div>
+    );
+  }
+
+  return (
+    <a
+      href={embed.href}
+      target="_blank"
+      rel="noreferrer"
+      className="text-xs font-medium text-brand-charcoal underline decoration-brand-rose underline-offset-2 hover:text-brand-rose"
+    >
+      Ver vídeo
+    </a>
   );
 }
