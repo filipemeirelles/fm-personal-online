@@ -38,7 +38,12 @@
 
 ## Próximos Passos
 
-Sprints 4, 5 e 6 implementadas em 26/05/2026 na branch `claude/web-app-creation-Fq8pk`.
+Sprints 4, 5 e 6 implementadas em 26/05/2026 na branch `claude/web-app-creation-Fq8pk` (trabalho feito pelo Claude Code no celular). Foi feita merge dessa base com itens portados da branch local `feat/sprint-4-workout-prescription` na branch `feat/mvp-merge`:
+
+- `scripts/convert-gifs.mjs` e `scripts/upload-library.mjs` (tooling do bucket `exercise-library`).
+- `src/lib/workout/video.ts` + render nativo de MP4/YouTube/Vimeo em `exercise-row.tsx`.
+
+Itens da branch local **não** portados (incompatíveis com o modelo de dados adotado): `workout_days`, carga por série, accordion read-only na tela da aluna, server actions e UI de `/trainer/alunas/[id]/plano` e `/student/treino`. Reaproveitar manualmente se virar dor.
 
 Próximos passos imediatos do usuário:
 
