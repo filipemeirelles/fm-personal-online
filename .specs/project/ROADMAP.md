@@ -50,32 +50,32 @@ Status: concluída em 24/05/2026 após smoke test manual end-to-end.
 
 ## Sprint 4 - Prescrição de Treinos
 
-Status: planejada.
+Status: implementada em 26/05/2026. Aguardando aplicação de migration no Supabase remoto e smoke test manual.
 
-- [ ] Criar plano de treino.
-- [ ] Adicionar exercícios ao plano.
-- [ ] Registrar séries, repetições, carga, descanso e observações.
-- [ ] Adicionar link de vídeo ou GIF.
-- [ ] Atribuir treino a uma aluna.
+- [x] Criar plano de treino.
+- [x] Adicionar exercícios ao plano.
+- [x] Registrar séries, repetições, carga, descanso e observações.
+- [x] Adicionar link de vídeo ou GIF.
+- [x] Atribuir treino a uma aluna.
 
 ## Sprint 5 - Execução de Treinos
 
-Status: planejada.
+Status: implementada em 26/05/2026. Aguardando aplicação de migration no Supabase remoto e smoke test manual.
 
-- [ ] Aluna visualizar treino vigente.
-- [ ] Aluna registrar carga realizada e observações.
-- [ ] Marcar treino como concluído.
-- [ ] Salvar histórico de execução.
+- [x] Aluna visualizar treino vigente.
+- [x] Aluna registrar carga realizada e observações.
+- [x] Marcar treino como concluído.
+- [x] Salvar histórico de execução.
 
 ## Sprint 6 - MVP Utilizável
 
-Status: planejada.
+Status: implementada em 26/05/2026. Aguardando smoke test manual e primeiro deploy.
 
-- [ ] Dashboard simples para trainer.
-- [ ] Dashboard simples para student.
-- [ ] Fluxo completo: personal cria treino, aluna acessa e registra execução.
-- [ ] Revisão de RLS e segurança.
-- [ ] Preparação para deploy na Vercel.
+- [x] Dashboard simples para trainer.
+- [x] Dashboard simples para student.
+- [x] Fluxo completo: personal cria treino, aluna acessa e registra execução.
+- [x] Revisão de RLS via specs `.specs/features/workout-prescription/design.md` e `.specs/features/workout-execution/design.md`.
+- [x] Preparação para deploy na Vercel (instruções no `README.md`).
 
 ## Backlog Futuro
 

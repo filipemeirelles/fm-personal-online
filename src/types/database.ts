@@ -77,6 +77,153 @@ export type Database = {
         };
         Relationships: [];
       };
+      workout_plans: {
+        Row: {
+          id: string;
+          trainer_id: string;
+          student_id: string;
+          title: string;
+          description: string | null;
+          is_active: boolean;
+          created_at: string;
+          updated_at: string;
+        };
+        Insert: {
+          id?: string;
+          trainer_id: string;
+          student_id: string;
+          title: string;
+          description?: string | null;
+          is_active?: boolean;
+          created_at?: string;
+          updated_at?: string;
+        };
+        Update: {
+          id?: string;
+          trainer_id?: string;
+          student_id?: string;
+          title?: string;
+          description?: string | null;
+          is_active?: boolean;
+          created_at?: string;
+          updated_at?: string;
+        };
+        Relationships: [];
+      };
+      plan_exercises: {
+        Row: {
+          id: string;
+          plan_id: string;
+          name: string;
+          sets: number | null;
+          reps: string | null;
+          load: string | null;
+          rest: string | null;
+          notes: string | null;
+          video_url: string | null;
+          order_index: number;
+          created_at: string;
+          updated_at: string;
+        };
+        Insert: {
+          id?: string;
+          plan_id: string;
+          name: string;
+          sets?: number | null;
+          reps?: string | null;
+          load?: string | null;
+          rest?: string | null;
+          notes?: string | null;
+          video_url?: string | null;
+          order_index?: number;
+          created_at?: string;
+          updated_at?: string;
+        };
+        Update: {
+          id?: string;
+          plan_id?: string;
+          name?: string;
+          sets?: number | null;
+          reps?: string | null;
+          load?: string | null;
+          rest?: string | null;
+          notes?: string | null;
+          video_url?: string | null;
+          order_index?: number;
+          created_at?: string;
+          updated_at?: string;
+        };
+        Relationships: [];
+      };
+      workout_logs: {
+        Row: {
+          id: string;
+          student_id: string;
+          plan_id: string;
+          started_at: string;
+          completed_at: string | null;
+          notes: string | null;
+          created_at: string;
+          updated_at: string;
+        };
+        Insert: {
+          id?: string;
+          student_id: string;
+          plan_id: string;
+          started_at?: string;
+          completed_at?: string | null;
+          notes?: string | null;
+          created_at?: string;
+          updated_at?: string;
+        };
+        Update: {
+          id?: string;
+          student_id?: string;
+          plan_id?: string;
+          started_at?: string;
+          completed_at?: string | null;
+          notes?: string | null;
+          created_at?: string;
+          updated_at?: string;
+        };
+        Relationships: [];
+      };
+      exercise_logs: {
+        Row: {
+          id: string;
+          workout_log_id: string;
+          plan_exercise_id: string;
+          sets_done: number | null;
+          reps_done: string | null;
+          load_done: string | null;
+          notes: string | null;
+          created_at: string;
+          updated_at: string;
+        };
+        Insert: {
+          id?: string;
+          workout_log_id: string;
+          plan_exercise_id: string;
+          sets_done?: number | null;
+          reps_done?: string | null;
+          load_done?: string | null;
+          notes?: string | null;
+          created_at?: string;
+          updated_at?: string;
+        };
+        Update: {
+          id?: string;
+          workout_log_id?: string;
+          plan_exercise_id?: string;
+          sets_done?: number | null;
+          reps_done?: string | null;
+          load_done?: string | null;
+          notes?: string | null;
+          created_at?: string;
+          updated_at?: string;
+        };
+        Relationships: [];
+      };
     };
     Views: Record<string, never>;
     Functions: {

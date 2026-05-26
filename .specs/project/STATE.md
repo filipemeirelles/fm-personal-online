@@ -16,34 +16,47 @@
 - O cadastro de alunas será via convite com token gerado pelo trainer (decisão da Sprint 3). Não há mais signup público para `student`.
 - Remoção de aluna é soft delete via `profiles.is_active = false`. Histórico preservado.
 - A `SUPABASE_SERVICE_ROLE_KEY` é usada apenas server-side, restrita por `import "server-only"` em `src/lib/supabase/admin.ts`.
+- **Exercícios são por plano**, não biblioteca global no MVP (decisão da Sprint 4). Cada exercício vive dentro de um único `workout_plan`.
+- **Sem `workout_days`** no MVP (decisão da Sprint 4). Cada variação de treino (A, B, C) é um plano separado. Simplifica modelo e UI.
+- **Plano ativo único por aluna**, garantido por índice único parcial + trigger no banco (Sprint 4).
+- **Logs de execução editáveis sem janela de tempo** no MVP (decisão da Sprint 5). Aluna pode reabrir e editar qualquer execução anterior. Reavaliar antes do go-live se virar dor.
+- **Reordenação de exercícios em duas etapas** (não atômica). Risco aceito; reescrever se houver colisão real.
 
 ## Decisões Pendentes
 
-- Decidir se `exercises` será biblioteca global ou exercício por plano no MVP.
-- Decidir se haverá `workout_days` para separar Treino A, B, C dentro de um plano.
-- Definir política final de imutabilidade de logs após 24 horas.
-- Definir quando será feito o deploy inicial na Vercel.
 - Definir provedor de envio de email (Resend, Postmark, etc.) para automatizar a entrega do link de convite (hoje é manual).
+- Reavaliar confirmação de email do Supabase antes do go-live.
+- Reavaliar imutabilidade de logs após 24h quando houver uso real.
+- Considerar drag-and-drop para reordenar exercícios (hoje é botão ↑/↓).
+- Considerar biblioteca global de exercícios quando houver dor real de duplicação entre planos.
 
 ## Blockers
 
 - Docker não está disponível no terminal atual, então o ambiente Supabase local ainda não foi executado. Todo trabalho está apontando para o projeto remoto.
 - As chaves reais devem ficar apenas em `.env.local` e nunca serem commitadas.
+- Migrations `004_workout_plans.sql` e `005_workout_logs.sql` ainda precisam ser aplicadas no Supabase remoto via `npx supabase db push` antes do smoke test.
 
 ## Próximos Passos
 
-Sprint 3 fechada em 24/05/2026 após smoke test manual end-to-end (desativação de aluna pelo trainer, bloqueio no middleware com encerramento de sessão e mensagem `Seu acesso está suspenso` no login).
+Sprints 4, 5 e 6 implementadas em 26/05/2026 na branch `claude/web-app-creation-Fq8pk`.
 
-Próximo passo imediato: abrir PR da branch `feat/sprint-3-student-management` para `main`.
+Próximos passos imediatos do usuário:
 
-Branch atual: `feat/sprint-3-student-management`.
+1. Aplicar migrations 004 e 005 no Supabase remoto (`npx supabase db push`).
+2. Atualizar `.env.local` se faltar variável (todas já estão em `.env.example`).
+3. Rodar smoke test manual end-to-end:
+   - Trainer cria plano para aluna, adiciona exercícios, ativa.
+   - Aluna abre `/student`, vê plano ativo, registra execução.
+   - Histórico aparece em `/student`; aluna reabre e edita registro.
+   - Trainer abre perfil da aluna e vê resumo de atividade.
+4. Abrir PR `claude/web-app-creation-Fq8pk` → `main` após smoke test.
+5. Iniciar preparo de deploy na Vercel seguindo `README.md`.
 
-Itens pendentes que carregam para sprints futuras:
+Itens carregando para depois do MVP:
 
-- Reavaliar a confirmação de email do Supabase antes do deploy em produção.
-- Definir provedor de envio de email para automatizar a entrega do link de convite.
-- Adicionar `graphify-out/` e `.planning/graphs/` ao `.gitignore` (artefatos de ferramenta entraram no último commit).
-- Iniciar Sprint 4 — Prescrição de Treinos.
+- Provedor de email transacional para automatizar convite.
+- Reavaliar confirmação de email e janela de edição de logs.
+- Backlog: gráficos de evolução, feedback do personal, biblioteca global de exercícios, anamnese.
 
 ## Histórico Resumido
 
@@ -62,3 +75,4 @@ Itens pendentes que carregam para sprints futuras:
 - Sprint 3 entregou: `src/lib/supabase/admin.ts` (service role server-only), `src/lib/supabase/server.ts` (client server com cookies), `src/app/(dashboard)/trainer/alunas/` (página + actions `createInvite`/`cancelInvite`/`resendInvite`/`deactivateStudent` + form e botões por linha), `src/app/(dashboard)/trainer/alunas/[id]/` (perfil individual com nome, email Auth, data de entrada, status e desativação), `src/app/convite/[token]/` (página pública + action `acceptInvite` que cria `auth.users` via admin, marca convite como aceito e loga a aluna), middleware bloqueando aluna desativada e `/cadastro` redirecionando para `/login?info=convite`.
 - Tasks 10 a 13 da Sprint 3 foram concluídas em 23/05/2026. `npm run lint`, `npm run type-check` e `npm run build` passaram.
 - Sprint 3 fechada em 24/05/2026 após smoke test manual end-to-end. Pronta para abrir PR para `main`.
+- Sprints 4, 5 e 6 implementadas em 26/05/2026 na branch `claude/web-app-creation-Fq8pk`. Sprint 4 entrega prescrição de treinos (CRUD de planos e exercícios pelo trainer com plano ativo único por aluna garantido por trigger). Sprint 5 entrega execução pela aluna (formulário único de registro + edição de execuções anteriores). Sprint 6 entrega dashboard do trainer com stats agregados, bloco de atividade no perfil da aluna e instruções de deploy na Vercel. Migrations `004_workout_plans.sql` e `005_workout_logs.sql` criadas mas pendentes de aplicação. `npm run lint`, `npm run type-check` e `npm run build` (com env vars dummy) passaram.

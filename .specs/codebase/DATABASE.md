@@ -1,6 +1,6 @@
 # Banco de Dados - FM Personal Online
 
-## Modelo Inicial
+## Modelo Implementado
 
 ### auth.users
 
@@ -20,59 +20,60 @@ Dados públicos e role do usuário autenticado.
 id uuid primary key references auth.users(id) on delete cascade
 name text not null
 role text not null check role in ('trainer', 'student')
+is_active boolean not null default true
+trainer_id uuid references profiles(id) on delete set null
 created_at timestamptz default now()
 updated_at timestamptz default now()
 ```
 
-### trainers
+- `is_active`: usado para soft delete da aluna.
+- `trainer_id`: nulo para trainers; preenchido para students vinculados.
+- Trigger `guard_profile_sensitive_columns` impede que a própria aluna altere `is_active` ou `trainer_id`.
 
-Perfil profissional do personal trainer.
+### student_invites
+
+Convites de aluna gerados pelo trainer.
 
 ```txt
-id uuid primary key
-profile_id uuid references profiles(id)
-bio text
-created_at timestamptz default now()
-updated_at timestamptz default now()
+id uuid primary key default gen_random_uuid()
+trainer_id uuid not null references profiles(id) on delete cascade
+name text not null
+email text not null
+token text not null unique
+status text not null default 'pending' check (status in ('pending','accepted','cancelled','expired'))
+expires_at timestamptz not null
+accepted_at timestamptz
+created_at timestamptz not null default now()
 ```
 
-### students
-
-Alunas vinculadas a um trainer.
-
-```txt
-id uuid primary key
-profile_id uuid references profiles(id)
-trainer_id uuid references trainers(id)
-active boolean default true
-created_at timestamptz default now()
-updated_at timestamptz default now()
-```
+- Índice único parcial garante no máximo um convite pendente por email por trainer.
+- Função `get_invite_by_token(text)` `security definer` lê o convite por token na rota pública.
 
 ### workout_plans
 
-Planos de treino atribuídos a alunas.
+Planos de treino atribuídos a uma aluna.
 
 ```txt
-id uuid primary key
-trainer_id uuid references trainers(id)
-student_id uuid references students(id)
-name text not null
+id uuid primary key default gen_random_uuid()
+trainer_id uuid not null references profiles(id) on delete cascade
+student_id uuid not null references profiles(id) on delete cascade
+title text not null
 description text
-active boolean default true
-starts_at date
-ends_at date
-created_at timestamptz default now()
-updated_at timestamptz default now()
+is_active boolean not null default false
+created_at timestamptz not null default now()
+updated_at timestamptz not null default now()
 ```
 
-### exercises
+- Índice único parcial garante apenas um plano ativo por aluna.
+- Trigger `ensure_single_active_plan` desativa os demais planos da aluna quando um novo é ativado.
 
-Exercícios dentro de um plano de treino.
+### plan_exercises
+
+Exercícios prescritos dentro de um plano.
 
 ```txt
-id uuid primary key
-workout_plan_id uuid references workout_plans(id)
+id uuid primary key default gen_random_uuid()
+plan_id uuid not null references workout_plans(id) on delete cascade
 name text not null
 sets integer
 reps text
@@ -80,60 +81,74 @@ load text
 rest text
 notes text
 video_url text
-sort_order integer default 0
-created_at timestamptz default now()
-updated_at timestamptz default now()
+order_index integer not null default 0
+created_at timestamptz not null default now()
+updated_at timestamptz not null default now()
 ```
+
+- `reps`, `load` e `rest` são `text` para aceitar formatos livres ("8-12", "60kg", "60s").
+- `order_index` controla a ordem de exibição.
 
 ### workout_logs
 
-Registro de execução de treino.
+Registro de execução de uma sessão de treino pela aluna.
 
 ```txt
-id uuid primary key
-student_id uuid references students(id)
-workout_plan_id uuid references workout_plans(id)
-completed_at timestamptz default now()
+id uuid primary key default gen_random_uuid()
+student_id uuid not null references profiles(id) on delete cascade
+plan_id uuid not null references workout_plans(id) on delete cascade
+started_at timestamptz not null default now()
+completed_at timestamptz
 notes text
-created_at timestamptz default now()
+created_at timestamptz not null default now()
+updated_at timestamptz not null default now()
 ```
+
+- No MVP, `completed_at` é preenchido com `now()` na criação (não há fluxo de rascunho).
+- Histórico editável sem janela de tempo.
 
 ### exercise_logs
 
-Registro de execução individual por exercício.
+Registro por exercício dentro de uma sessão.
 
 ```txt
-id uuid primary key
-workout_log_id uuid references workout_logs(id)
-exercise_id uuid references exercises(id)
-actual_load text
-actual_reps text
+id uuid primary key default gen_random_uuid()
+workout_log_id uuid not null references workout_logs(id) on delete cascade
+plan_exercise_id uuid not null references plan_exercises(id) on delete cascade
+sets_done integer
+reps_done text
+load_done text
 notes text
-created_at timestamptz default now()
+created_at timestamptz not null default now()
+updated_at timestamptz not null default now()
 ```
 
-## RLS Inicial
+- Índice único garante um registro por exercício por sessão.
 
-- Policies devem usar `auth.uid()` como base de identidade.
-- `profiles.id` deve corresponder a `auth.uid()`.
-- Trainer só deve acessar alunas vinculadas a ele.
-- Student só deve acessar dados próprios.
-- Logs devem ser protegidos por vínculo com a aluna autenticada.
+## RLS Resumida
 
-## Migration Existente
+- `profiles`: usuário gerencia o próprio; trainer vê/atualiza alunas com `trainer_id = auth.uid()`. Trigger protege `is_active` e `trainer_id`.
+- `student_invites`: trainer gerencia próprios convites; rota pública usa função security definer por token.
+- `workout_plans`: trainer faz `for all` nos próprios; aluna faz `select` nos próprios.
+- `plan_exercises`: trainer gerencia exercícios via join no plano dele; aluna lê exercícios dos próprios planos.
+- `workout_logs`: aluna gerencia próprios; trainer faz `select` dos logs das próprias alunas.
+- `exercise_logs`: mesma lógica de `workout_logs`, com join via workout_log.
+
+## Migrations Existentes
 
 ```txt
 supabase/migrations/001_create_profiles.sql
 supabase/migrations/002_create_profile_on_signup.sql
+supabase/migrations/003_student_management.sql
+supabase/migrations/004_workout_plans.sql
+supabase/migrations/005_workout_logs.sql
 ```
 
-Essas migrations criam `profiles`, habilitam RLS, adicionam policies mínimas para o próprio usuário autenticado e criam um trigger para gerar profiles automaticamente após signup.
+Status: 001, 002 e 003 aplicadas no remoto. 004 e 005 criadas, pendentes de aplicação (`npx supabase db push`).
 
-Status: aplicadas no projeto Supabase remoto `emvisxoadtdeojddvumd`.
+## Decisões Documentadas
 
-## Decisões Pendentes
-
-- Confirmar fluxo final de criação de `profiles` após signup.
-- Decidir se `exercises` será biblioteca global ou apenas exercício por plano no MVP.
-- Decidir se haverá `workout_days` para separar Treino A, B, C dentro do mesmo plano.
-- Definir política de imutabilidade de logs após 24 horas.
+- Exercícios por plano, sem biblioteca global no MVP.
+- Sem `workout_days` no MVP — cada variação A/B/C é um plano separado.
+- Plano ativo único por aluna garantido por índice único parcial + trigger.
+- Logs editáveis sem janela de tempo no MVP.

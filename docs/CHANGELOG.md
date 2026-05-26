@@ -182,3 +182,77 @@ O formato segue uma versão simplificada de changelog por etapas de desenvolvime
 ### Observação
 
 - Os painéis são placeholders; gestão de alunas, treinos e dashboards reais continuam fora desta etapa.
+
+## 2026-05-26 — Sprint 4: prescrição de treinos
+
+### Adicionado
+
+- Spec, design e tasks em `.specs/features/workout-prescription/`.
+- Migration `004_workout_plans.sql` com tabelas `workout_plans` e `plan_exercises`, RLS e trigger `ensure_single_active_plan` (apenas um plano ativo por aluna).
+- Server Actions em `src/app/(dashboard)/trainer/alunas/[id]/treinos/actions.ts` para criar/editar/ativar/excluir plano e gerenciar exercícios (adicionar, editar, remover, reordenar).
+- Páginas:
+  - `/trainer/alunas/[id]/treinos` lista planos da aluna (ativo destacado + histórico).
+  - `/trainer/alunas/[id]/treinos/novo` cria um plano.
+  - `/trainer/alunas/[id]/treinos/[planId]` editor completo com metadados, lista de exercícios e ações.
+- Componente `Textarea` no design system para campos longos.
+- Tipagem das novas tabelas em `src/types/database.ts`.
+
+### Decisões registradas
+
+- Exercícios pertencem a um único plano (sem biblioteca global) no MVP.
+- Sem `workout_days`: cada variação de treino vira um plano separado.
+- Apenas um plano ativo por aluna, garantido por índice único parcial + trigger no banco.
+
+### Observação
+
+- Migration `004` criada mas pendente de aplicação no Supabase remoto.
+
+## 2026-05-26 — Sprint 5: execução de treinos
+
+### Adicionado
+
+- Spec, design e tasks em `.specs/features/workout-execution/`.
+- Migration `005_workout_logs.sql` com tabelas `workout_logs` e `exercise_logs`, RLS para aluna (manage) e trainer (select).
+- Server Actions em `src/app/(dashboard)/student/treinos/[planId]/registrar/actions.ts` para criar e atualizar registros de execução.
+- Páginas:
+  - `/student/treinos/[planId]/registrar` formulário único de execução por exercício.
+  - `/student/treinos/[planId]/historico/[logId]` detalhe e edição de uma execução anterior.
+- Dashboard `/student` atualizado para mostrar plano ativo, exercícios prescritos, botão "Registrar treino" e histórico das últimas execuções.
+- Tipagem das novas tabelas em `src/types/database.ts`.
+
+### Decisões registradas
+
+- Logs editáveis sem janela de tempo no MVP.
+- Reordenação atômica de exercícios fica para o futuro; reordenação atual é em duas etapas (risco aceito).
+
+### Observação
+
+- Migration `005` criada mas pendente de aplicação no Supabase remoto.
+
+## 2026-05-26 — Sprint 6: MVP utilizável e preparo de deploy
+
+### Adicionado
+
+- Spec, design e tasks em `.specs/features/mvp-dashboards/`.
+- Componente `StatCard` em `src/components/shared/` para painéis com métricas.
+- Dashboard `/trainer` com saudação personalizada, quatro cards-resumo (alunas ativas, convites pendentes, planos ativos, execuções nos últimos 7 dias) e atalhos.
+- Bloco "Atividade" no perfil da aluna (`/trainer/alunas/[id]`) com plano ativo e últimas 5 execuções.
+- README com seção completa de deploy na Vercel (variáveis, passos, checklist por deploy).
+
+### Alterado
+
+- `.specs/codebase/DATABASE.md` reorganizado para refletir o modelo realmente implementado nas Sprints 3, 4 e 5.
+- `.specs/project/ROADMAP.md` marca Sprints 4, 5 e 6 como implementadas (aguardando smoke test).
+- `.specs/project/STATE.md` atualizado com decisões arquiteturais tomadas e novos próximos passos.
+
+### Validado
+
+- `npm run lint` ✓
+- `npm run type-check` ✓
+- `npm run build` ✓ (com env vars dummy)
+
+### Pendente para o usuário
+
+- Aplicar migrations `004` e `005` no Supabase remoto.
+- Rodar smoke test manual end-to-end.
+- Configurar variáveis na Vercel e fazer o primeiro deploy.
