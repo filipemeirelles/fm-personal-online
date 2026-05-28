@@ -50,13 +50,15 @@ Status: concluída em 24/05/2026 após smoke test manual end-to-end.
 
 ## Sprint 4 - Prescrição de Treinos
 
-Status: planejada.
+Status: implementada na branch `claude/github-project-analysis-vJMeq` (código validado). Falta aplicar migrations no remoto, completar o seed da base e smoke test manual.
 
-- [ ] Criar plano de treino.
-- [ ] Adicionar exercícios ao plano.
-- [ ] Registrar séries, repetições, carga, descanso e observações.
-- [ ] Adicionar link de vídeo ou GIF.
-- [ ] Atribuir treino a uma aluna.
+- [x] Biblioteca global de exercícios por trainer (nome, grupo muscular, vídeo/GIF, descrição).
+- [x] Criar plano de treino (vários por aluna, só um ativo).
+- [x] Treinos por dia dentro do plano (Treino A, B, C).
+- [x] Adicionar exercícios da biblioteca ao treino.
+- [x] Registrar séries, repetições (dropdown), carga sugerida, descanso (dropdown) e observações.
+- [x] Link de vídeo ou GIF por exercício (na biblioteca).
+- [x] Aluna visualiza o plano vigente e edita apenas a carga sugerida.
 
 ## Sprint 5 - Execução de Treinos
 

@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { Badge } from "@/components/ui/badge";
 import {
   Card,
@@ -35,12 +36,22 @@ export default function StudentPage() {
           </CardHeader>
           <CardContent>
             <p className="text-sm leading-6 text-brand-gray">
-              Próximas etapas planejadas: visualização do treino vigente,
-              registro de execução e acompanhamento de evolução. Nenhuma
-              funcionalidade de treino real foi implementada nesta etapa.
+              Acesse seus treinos para ver os exercícios prescritos e registrar
+              a carga que está usando.
             </p>
           </CardContent>
         </Card>
+
+        <Link href="/student/treinos" className="group block">
+          <Card className="transition-colors group-hover:border-brand-rose">
+            <CardHeader>
+              <CardTitle>Meus treinos</CardTitle>
+              <CardDescription>
+                Veja o plano prescrito pelo seu personal e registre sua carga.
+              </CardDescription>
+            </CardHeader>
+          </Card>
+        </Link>
       </div>
     </main>
   );

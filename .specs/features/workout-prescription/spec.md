@@ -18,8 +18,8 @@ A base de exercícios do trainer hoje vive no computador dele e ainda não está
 ## Escopo
 
 - Trainer gerencia uma biblioteca de exercícios (`/trainer/exercicios`): criar, editar e desativar (soft delete).
-- Cada exercício da biblioteca tem nome, grupo muscular, URL de vídeo/GIF e descrição/instruções.
-- Trainer cria um plano de treino para uma aluna (nome, descrição, datas opcionais).
+- Cada exercício da biblioteca tem nome, grupo muscular (escolhido de uma lista fixa), URL de vídeo/GIF e descrição/instruções.
+- Trainer cria um ou mais planos de treino para uma aluna (nome, descrição, datas opcionais); apenas um plano por aluna fica ativo por vez.
 - Dentro de um plano, o trainer cria treinos por dia (Treino A, B, C...), cada um com nome e foco opcional.
 - Dentro de cada treino, o trainer adiciona exercícios escolhidos da biblioteca.
 - Para cada exercício prescrito o trainer define: número de séries, repetições (dropdown), carga sugerida, tempo de descanso (dropdown) e observações.
@@ -54,7 +54,7 @@ Deve existir migration que cria:
 
 Trainer autenticado deve conseguir cadastrar, editar e desativar exercícios na própria biblioteca em `/trainer/exercicios`.
 
-- Campos: nome (obrigatório), grupo muscular, URL de vídeo/GIF, descrição.
+- Campos: nome (obrigatório), grupo muscular (escolhido de uma lista fixa), URL de vídeo/GIF, descrição.
 - Desativação é soft delete (`is_active = false`); exercícios já prescritos continuam válidos.
 - Lista é filtrável/agrupável por grupo muscular.
 
@@ -67,11 +67,13 @@ Deve existir uma migration de seed que popula `exercises` com a base atual do tr
 
 ### WKT-004 - Criar plano de treino
 
-Trainer deve conseguir criar um plano para uma aluna vinculada a ele.
+Trainer deve conseguir criar um ou mais planos para uma aluna vinculada a ele.
 
 - A criação parte do perfil da aluna (`/trainer/alunas/[id]`).
 - Campos: nome (obrigatório), descrição, data de início e fim (opcionais).
-- O plano nasce com `is_active = true` e `trainer_id`/`student_id` corretos.
+- O plano nasce com `trainer_id`/`student_id` corretos.
+- **Apenas um plano por aluna fica ativo por vez.** Ao ativar um plano, o plano ativo anterior daquela aluna é desativado automaticamente. O banco impede dois planos ativos para a mesma aluna.
+- O trainer pode alternar qual plano está ativo.
 
 ### WKT-005 - Treinos por dia (Treino A, B, C)
 

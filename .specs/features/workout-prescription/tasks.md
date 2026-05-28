@@ -1,6 +1,6 @@
 # Tasks - Prescrição de Treinos
 
-> **PONTO DE RETOMADA:** spec e design escritos, aguardando revisão do trainer antes de codar. Branch ativa: `claude/github-project-analysis-vJMeq`. A Task 3 (seed) depende do trainer fornecer o arquivo da base de exercícios.
+> **PONTO DE RETOMADA:** código da Sprint 4 implementado e validado (`lint`, `type-check`, `build` passam). Falta aplicar as migrations no Supabase remoto (Task 4 — depende de acesso/credenciais) e o smoke test manual (Task 12). A Task 3 (seed) segue bloqueada aguardando o arquivo da base de exercícios do trainer. Branch ativa: `claude/github-project-analysis-vJMeq`.
 
 ## 1. Criar spec, design e tasks da feature
 
@@ -14,7 +14,7 @@ Critérios de verificação:
 
 ## 2. Migration de prescrição
 
-Status: pendente.
+Status: concluído.
 
 Critérios de verificação:
 
@@ -46,7 +46,7 @@ Critérios de verificação:
 
 ## 5. Atualizar tipos de banco
 
-Status: pendente.
+Status: concluído.
 
 Critérios de verificação:
 
@@ -55,15 +55,15 @@ Critérios de verificação:
 
 ## 6. Constantes de dropdown
 
-Status: pendente.
+Status: concluído.
 
 Critérios de verificação:
 
-- Existe `src/lib/workout/options.ts` exportando `REPS_OPTIONS` e `REST_OPTIONS`.
+- Existe `src/lib/workout/options.ts` exportando `REPS_OPTIONS`, `REST_OPTIONS` e `MUSCLE_GROUPS`.
 
 ## 7. Biblioteca de exercícios `/trainer/exercicios`
 
-Status: pendente.
+Status: concluído.
 
 Critérios de verificação:
 
@@ -75,17 +75,18 @@ Critérios de verificação:
 
 ## 8. Criar plano a partir do perfil da aluna
 
-Status: pendente.
+Status: concluído.
 
 Critérios de verificação:
 
-- `/trainer/alunas/[id]` ganha seção "Planos de treino" listando os planos da aluna.
+- `/trainer/alunas/[id]` ganha seção "Planos de treino" listando os planos da aluna (com destaque do ativo).
 - Botão "Novo plano" cria plano com nome, descrição e datas opcionais.
-- Server Action `createPlan` valida posse da aluna (`trainer_id = auth.uid()`).
+- Trainer pode ativar/desativar planos; só um fica ativo por aluna.
+- Server Actions `createPlan`, `activatePlan`, `deactivatePlan` validam posse da aluna (`trainer_id = auth.uid()`) e mantêm um único plano ativo.
 
 ## 9. Editor do plano `/trainer/alunas/[id]/planos/[planId]`
 
-Status: pendente.
+Status: concluído.
 
 Critérios de verificação:
 
@@ -98,7 +99,7 @@ Critérios de verificação:
 
 ## 10. Visualização da aluna `/student/treinos`
 
-Status: pendente.
+Status: concluído.
 
 Critérios de verificação:
 
@@ -108,7 +109,7 @@ Critérios de verificação:
 
 ## 11. Aluna edita carga sugerida
 
-Status: pendente.
+Status: concluído.
 
 Critérios de verificação:
 
@@ -131,7 +132,7 @@ Critérios de verificação:
 
 ## 13. Rodar validações
 
-Status: pendente.
+Status: concluído.
 
 Critérios de verificação:
 

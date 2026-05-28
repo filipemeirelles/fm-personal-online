@@ -39,7 +39,7 @@ create index exercises_muscle_group_idx on public.exercises (trainer_id, muscle_
 ```
 
 - `is_active`: soft delete na biblioteca. Exercícios já prescritos continuam referenciados.
-- `muscle_group`: texto livre nesta sprint (peito, costas, perna...). Pode virar enum/tabela futura.
+- `muscle_group`: armazenado como `text`, mas a UI restringe a uma lista fixa (ver "Listas fixas"). Manter como texto evita migration ao ajustar a lista.
 
 ### `workout_plans` (plano por aluna)
 
@@ -59,7 +59,13 @@ create table public.workout_plans (
 
 create index workout_plans_student_id_idx on public.workout_plans (student_id);
 create index workout_plans_trainer_id_idx on public.workout_plans (trainer_id);
+
+-- Apenas um plano ativo por aluna
+create unique index workout_plans_one_active_per_student_idx
+  on public.workout_plans (student_id) where is_active = true;
 ```
+
+A aluna pode ter vários planos, mas o índice único parcial garante no máximo um ativo. A action `createPlan`/`activatePlan` desativa o plano ativo anterior na mesma operação antes de ativar o novo, evitando violar o índice.
 
 ### `workout_days` (Treino A, B, C)
 
@@ -100,16 +106,21 @@ create index workout_exercises_day_id_idx on public.workout_exercises (workout_d
 - `exercise_id` usa `on delete restrict`: não dá pra apagar exercício da biblioteca que ainda está prescrito (deve-se desativar, não apagar).
 - `reps` e `rest` são texto, mas a UI restringe a valores fixos (ver "Dropdowns").
 
-## Dropdowns de valores fixos
+## Listas fixas
 
 Valores definidos em `src/lib/workout/options.ts` e usados nos `<select>`:
 
 ```ts
 export const REPS_OPTIONS = ["6-8", "8-10", "8-12", "10-12", "12-15", "15-20", "Até a falha"];
 export const REST_OPTIONS = ["30s", "45s", "60s", "90s", "2min", "3min"];
+export const MUSCLE_GROUPS = [
+  "Peito", "Costas", "Ombros", "Bíceps", "Tríceps", "Antebraço",
+  "Abdômen", "Quadríceps", "Posterior de coxa", "Glúteos",
+  "Panturrilha", "Cardio", "Corpo inteiro",
+];
 ```
 
-São facilmente editáveis depois. Como `reps`/`rest` são `text` no banco, ampliar a lista não exige migration.
+São facilmente editáveis depois. Como `reps`/`rest`/`muscle_group` são `text` no banco, ampliar as listas não exige migration.
 
 ## RLS
 
@@ -306,7 +317,7 @@ src/app/(dashboard)/
 Trainer (em `actions.ts` correspondentes), todas validam sessão + role trainer + posse via RLS:
 
 - `createExercise / updateExercise / deactivateExercise`
-- `createPlan(studentId, …)` / `deactivatePlan(planId)`
+- `createPlan(studentId, …)` (desativa plano ativo anterior da aluna) / `activatePlan(planId)` / `deactivatePlan(planId)`
 - `addDay / updateDay / deleteDay`
 - `addExercise / updateExercise / deleteExercise` (exercício prescrito)
 - Reordenação atualiza `sort_order`.

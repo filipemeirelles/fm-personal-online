@@ -13,6 +13,7 @@ import { PageHeader } from "@/components/shared/page-header";
 import { createSupabaseAdminClient } from "@/lib/supabase/admin";
 import { createSupabaseServerClient } from "@/lib/supabase/server";
 import { DeactivateStudentButton } from "./deactivate-student-button";
+import { PlansSection } from "./plans-section";
 
 interface PageProps {
   params: Promise<{ id: string }>;
@@ -61,6 +62,14 @@ export default async function TrainerAlunaDetalhePage({ params }: PageProps) {
   const admin = createSupabaseAdminClient();
   const { data: authUser } = await admin.auth.admin.getUserById(student.id);
   const email = authUser.user?.email ?? "Email não disponível";
+
+  const { data: plans } = await supabase
+    .from("workout_plans")
+    .select("id, name, description, is_active, starts_at, ends_at")
+    .eq("student_id", student.id)
+    .eq("trainer_id", user.id)
+    .order("is_active", { ascending: false })
+    .order("created_at", { ascending: false });
 
   return (
     <main className="min-h-screen bg-brand-offwhite px-6 py-10 md:px-10">
@@ -132,6 +141,19 @@ export default async function TrainerAlunaDetalhePage({ params }: PageProps) {
             </dl>
 
             {student.is_active && <DeactivateStudentButton studentId={student.id} />}
+          </CardContent>
+        </Card>
+
+        <Card>
+          <CardHeader>
+            <CardTitle>Planos de treino</CardTitle>
+            <CardDescription>
+              Crie planos e monte os treinos (Treino A, B, C) com os exercícios
+              da sua biblioteca. Apenas um plano fica ativo por vez.
+            </CardDescription>
+          </CardHeader>
+          <CardContent>
+            <PlansSection studentId={student.id} plans={plans ?? []} />
           </CardContent>
         </Card>
       </div>

@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { Badge } from "@/components/ui/badge";
 import {
   Card,
@@ -35,12 +36,34 @@ export default function TrainerPage() {
           </CardHeader>
           <CardContent>
             <p className="text-sm leading-6 text-brand-gray">
-              Próximas etapas planejadas: gestão de alunas, prescrição de treinos
-              e acompanhamento de evolução. Nenhuma funcionalidade de dashboard
-              real foi implementada nesta etapa.
+              Acesse a gestão de alunas e a biblioteca de exercícios para montar
+              os planos de treino.
             </p>
           </CardContent>
         </Card>
+
+        <div className="grid gap-4 sm:grid-cols-2">
+          <Link href="/trainer/alunas" className="group">
+            <Card className="h-full transition-colors group-hover:border-brand-rose">
+              <CardHeader>
+                <CardTitle>Alunas</CardTitle>
+                <CardDescription>
+                  Convide, acompanhe e monte planos de treino para suas alunas.
+                </CardDescription>
+              </CardHeader>
+            </Card>
+          </Link>
+          <Link href="/trainer/exercicios" className="group">
+            <Card className="h-full transition-colors group-hover:border-brand-rose">
+              <CardHeader>
+                <CardTitle>Biblioteca de exercícios</CardTitle>
+                <CardDescription>
+                  Cadastre e organize os exercícios usados nas prescrições.
+                </CardDescription>
+              </CardHeader>
+            </Card>
+          </Link>
+        </div>
       </div>
     </main>
   );

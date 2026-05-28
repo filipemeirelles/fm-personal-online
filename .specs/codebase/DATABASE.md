@@ -49,41 +49,77 @@ created_at timestamptz default now()
 updated_at timestamptz default now()
 ```
 
+> **Importante:** o modelo desta seção é o esboço inicial do projeto. As tabelas
+> `trainers` e `students` nunca foram criadas — a implementação real usa
+> `profiles` com `role` + `trainer_id`. As tabelas de treino implementadas na
+> Sprint 4 estão descritas em "Schema implementado — Sprint 4" abaixo.
+
+## Schema implementado — Sprint 4 (Prescrição de Treinos)
+
+Criado por `supabase/migrations/004_workout_prescription.sql`.
+
+### exercises (biblioteca global por trainer)
+
+```txt
+id uuid primary key
+trainer_id uuid references profiles(id) on delete cascade
+name text not null
+muscle_group text
+video_url text
+description text
+is_active boolean not null default true
+created_at timestamptz not null default now()
+updated_at timestamptz not null default now()
+```
+
 ### workout_plans
 
-Planos de treino atribuídos a alunas.
-
 ```txt
 id uuid primary key
-trainer_id uuid references trainers(id)
-student_id uuid references students(id)
+trainer_id uuid references profiles(id) on delete cascade
+student_id uuid references profiles(id) on delete cascade
 name text not null
 description text
-active boolean default true
+is_active boolean not null default true
 starts_at date
 ends_at date
-created_at timestamptz default now()
-updated_at timestamptz default now()
+created_at timestamptz not null default now()
+updated_at timestamptz not null default now()
+-- índice único parcial: apenas um plano ativo por aluna
 ```
 
-### exercises
-
-Exercícios dentro de um plano de treino.
+### workout_days (Treino A, B, C)
 
 ```txt
 id uuid primary key
-workout_plan_id uuid references workout_plans(id)
+workout_plan_id uuid references workout_plans(id) on delete cascade
 name text not null
-sets integer
-reps text
-load text
+focus text
+sort_order integer not null default 0
+created_at timestamptz not null default now()
+updated_at timestamptz not null default now()
+```
+
+### workout_exercises (exercício prescrito)
+
+```txt
+id uuid primary key
+workout_day_id uuid references workout_days(id) on delete cascade
+exercise_id uuid references exercises(id) on delete restrict
+sets integer not null default 3
+reps text not null
+suggested_load text   -- único campo editável pela aluna (RLS + trigger guard)
 rest text
 notes text
-video_url text
-sort_order integer default 0
-created_at timestamptz default now()
-updated_at timestamptz default now()
+sort_order integer not null default 0
+created_at timestamptz not null default now()
+updated_at timestamptz not null default now()
 ```
+
+A aluna só pode alterar `suggested_load`, garantido pela função/trigger
+`guard_workout_exercise_columns`.
+
+## Esboço inicial (não implementado como abaixo)
 
 ### workout_logs
 
@@ -125,15 +161,20 @@ created_at timestamptz default now()
 ```txt
 supabase/migrations/001_create_profiles.sql
 supabase/migrations/002_create_profile_on_signup.sql
+supabase/migrations/003_student_management.sql
+supabase/migrations/004_workout_prescription.sql   -- aguardando aplicar no remoto
+supabase/migrations/005_seed_exercises.sql          -- scaffold, aguardando base do trainer
 ```
 
-Essas migrations criam `profiles`, habilitam RLS, adicionam policies mínimas para o próprio usuário autenticado e criam um trigger para gerar profiles automaticamente após signup.
+As migrations 001–003 criam `profiles`, RLS, trigger de criação automática de
+profiles, gestão de alunas e convites. A 004 cria as tabelas de prescrição
+(Sprint 4). A 005 é um scaffold idempotente para popular a biblioteca quando o
+trainer fornecer o arquivo da base.
 
-Status: aplicadas no projeto Supabase remoto `emvisxoadtdeojddvumd`.
+Status: 001–003 aplicadas no projeto Supabase remoto `emvisxoadtdeojddvumd`.
+004 e 005 ainda não aplicadas no remoto.
 
 ## Decisões Pendentes
 
 - Confirmar fluxo final de criação de `profiles` após signup.
-- Decidir se `exercises` será biblioteca global ou apenas exercício por plano no MVP.
-- Decidir se haverá `workout_days` para separar Treino A, B, C dentro do mesmo plano.
-- Definir política de imutabilidade de logs após 24 horas.
+- Definir política de imutabilidade de logs após 24 horas (Sprint 5).

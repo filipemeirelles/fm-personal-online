@@ -16,11 +16,14 @@
 - O cadastro de alunas será via convite com token gerado pelo trainer (decisão da Sprint 3). Não há mais signup público para `student`.
 - Remoção de aluna é soft delete via `profiles.is_active = false`. Histórico preservado.
 - A `SUPABASE_SERVICE_ROLE_KEY` é usada apenas server-side, restrita por `import "server-only"` em `src/lib/supabase/admin.ts`.
+- `exercises` é uma biblioteca global por trainer (decisão da Sprint 4), reaproveitável entre planos e alunas. O exercício prescrito vive em `workout_exercises`, separado da biblioteca.
+- Há `workout_days` para separar Treino A, B, C dentro de um plano (decisão da Sprint 4).
+- Uma aluna pode ter vários planos, mas só um ativo por vez (garantido por índice único parcial em `workout_plans`).
+- Na prescrição, a aluna só pode alterar `suggested_load`, garantido por RLS + trigger `guard_workout_exercise_columns` (mesmo padrão do guard de `profiles`).
+- Grupo muscular, repetições e descanso são listas fixas em `src/lib/workout/options.ts` (armazenados como texto, sem migration para ampliar).
 
 ## Decisões Pendentes
 
-- Decidir se `exercises` será biblioteca global ou exercício por plano no MVP.
-- Decidir se haverá `workout_days` para separar Treino A, B, C dentro de um plano.
 - Definir política final de imutabilidade de logs após 24 horas.
 - Definir quando será feito o deploy inicial na Vercel.
 - Definir provedor de envio de email (Resend, Postmark, etc.) para automatizar a entrega do link de convite (hoje é manual).
@@ -32,18 +35,21 @@
 
 ## Próximos Passos
 
-Sprint 3 fechada em 24/05/2026 após smoke test manual end-to-end (desativação de aluna pelo trainer, bloqueio no middleware com encerramento de sessão e mensagem `Seu acesso está suspenso` no login).
+Sprint 4 — Prescrição de Treinos implementada na branch `claude/github-project-analysis-vJMeq`. Código completo e validado (`lint`, `type-check`, `build` passam com env do Supabase).
 
-Próximo passo imediato: abrir PR da branch `feat/sprint-3-student-management` para `main`.
+Próximos passos imediatos:
 
-Branch atual: `feat/sprint-3-student-management`.
+- Aplicar as migrations `004_workout_prescription.sql` e `005_seed_exercises.sql` no Supabase remoto (`npx supabase db push`) — pendente de credenciais/ambiente.
+- O trainer fornecer o arquivo da base de exercícios para completar o seed `005` (hoje é só um scaffold).
+- Smoke test manual end-to-end da prescrição (biblioteca → plano → treino → exercícios → aluna visualiza → aluna edita carga).
+
+Branch atual: `claude/github-project-analysis-vJMeq`.
 
 Itens pendentes que carregam para sprints futuras:
 
 - Reavaliar a confirmação de email do Supabase antes do deploy em produção.
 - Definir provedor de envio de email para automatizar a entrega do link de convite.
-- Adicionar `graphify-out/` e `.planning/graphs/` ao `.gitignore` (artefatos de ferramenta entraram no último commit).
-- Iniciar Sprint 4 — Prescrição de Treinos.
+- Iniciar Sprint 5 — Execução de Treinos (registro de séries realizadas, marcar treino concluído, histórico de carga).
 
 ## Histórico Resumido
 
@@ -62,3 +68,7 @@ Itens pendentes que carregam para sprints futuras:
 - Sprint 3 entregou: `src/lib/supabase/admin.ts` (service role server-only), `src/lib/supabase/server.ts` (client server com cookies), `src/app/(dashboard)/trainer/alunas/` (página + actions `createInvite`/`cancelInvite`/`resendInvite`/`deactivateStudent` + form e botões por linha), `src/app/(dashboard)/trainer/alunas/[id]/` (perfil individual com nome, email Auth, data de entrada, status e desativação), `src/app/convite/[token]/` (página pública + action `acceptInvite` que cria `auth.users` via admin, marca convite como aceito e loga a aluna), middleware bloqueando aluna desativada e `/cadastro` redirecionando para `/login?info=convite`.
 - Tasks 10 a 13 da Sprint 3 foram concluídas em 23/05/2026. `npm run lint`, `npm run type-check` e `npm run build` passaram.
 - Sprint 3 fechada em 24/05/2026 após smoke test manual end-to-end. Pronta para abrir PR para `main`.
+- Sprint 4 iniciada na branch `claude/github-project-analysis-vJMeq` com spec/design/tasks em `.specs/features/workout-prescription/`. Resolveu as decisões pendentes de `exercises` (biblioteca global) e `workout_days` (Treino A/B/C).
+- Migration `004_workout_prescription.sql` criada: tabelas `exercises`, `workout_plans`, `workout_days`, `workout_exercises`, índices, RLS para trainer e aluna, índice único parcial de plano ativo e trigger `guard_workout_exercise_columns` (aluna só altera `suggested_load`). Migration `005_seed_exercises.sql` criada como scaffold idempotente aguardando a base real do trainer.
+- Sprint 4 entregou: `src/lib/workout/options.ts` (listas fixas de reps/descanso/grupos musculares), `src/components/ui/select.tsx`, biblioteca de exercícios em `/trainer/exercicios` (page + actions + `exercises-manager`), planos na página da aluna (`plans-section` + `planos/actions.ts` com `createPlan`/`activatePlan`/`deactivatePlan`/`deletePlan`), editor de plano em `/trainer/alunas/[id]/planos/[planId]` (page + actions de dias/exercícios/reorder + `plan-editor` + `exercise-form`), visão da aluna em `/student/treinos` (page + `load-input` + action `updateSuggestedLoad`) e links de navegação nos painéis de trainer e aluna.
+- Validações da Sprint 4 (`lint`, `type-check`, `build`) passaram. Falta aplicar migrations no remoto, completar o seed e smoke test manual.
